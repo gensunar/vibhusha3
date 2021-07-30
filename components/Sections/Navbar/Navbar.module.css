@@ -1,0 +1,38 @@
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    background-color: #0cbaba;
+    background-image: linear-gradient(315deg, #0cbaba 0%, #380036 74%);
+    color: #fff8dc;
+    font-family: 'Roboto', sans-serif;
+
+}
+.logo{
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+.logo p{
+    margin:25px
+}
+.logo img{
+    width: 60px;
+    height: 60px;
+    padding: 5px 5px;
+    border-radius: 50%;
+}
+.menu ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+.menu ul li{
+    margin: 9px 25px;
+    align-items: center;
+}
+.login{
+    background-color: blueviolet;
+}.menu ul li Link :hover{
+    cursor: pointer;
+}
