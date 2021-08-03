@@ -28,9 +28,10 @@ return(
         <ProductItem 
             key = {product.productId}
             price = {product.price}
-            image = {product.productImage}
+            image = {product.productImage[0]}
             title = {product.productName}
             id = {product.productId}
+            description = {product.productDescription}
         />
     ))}
     </>
