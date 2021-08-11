@@ -1,15 +1,17 @@
-.image_container{
-    width: 90vw;
-    height: 60vh;
+.main_container{
     border: 3px solid red;
-    background-color: rgb(175, 204, 209);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    
+    width: 100%;
+}
+.image_container{
+    
+    border: 2px solid green;
 }
 
-.image_container img {
-    height: 100%;
-    width: 60vw;
-    border: 2px solid yellow;
+.image {
+    height: 400px;
+    width: 400px ;
+}
+.text_container{
+    flex-basis: 40%;
 }

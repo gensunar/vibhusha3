@@ -1,18 +1,16 @@
 .main_carousel_div{
-    width: 100%;
+    width: 100vw;
     height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
     padding-top: 20px;
-    
+    padding: 0px;
 }
 .slider{
-    width: 90%;
+    width: 100vw;
     height: auto;
-    
     box-shadow: 3px 3px 3px 3px #0000;
 }
 .loading{
-
 }

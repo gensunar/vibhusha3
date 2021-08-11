@@ -4,8 +4,7 @@ export default function Home() {
   return (
     <>
     <Layout>
-    <HomeSection />
-    <h1>Thisis home page</h1>    
+    <HomeSection />    
     </Layout>
     </>
   )

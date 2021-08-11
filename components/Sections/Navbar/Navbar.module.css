@@ -1,12 +1,15 @@
-
 .navbar{
     display: flex;
     justify-content: space-between;
-    background-color: #0cbaba;
-    background-image: linear-gradient(315deg, #0cbaba 0%, #380036 74%);
+    background-color: rgb(37, 223, 223);
     color: #fff8dc;
-    font-family: 'Roboto', sans-serif;
-
+    position: fixed;
+    z-index: 100;
+    width: 100vw;  
+    align-items: center; 
+    top: 0;
+    left: 0;
+    height: 75px;
 }
 .logo{
     display: flex;
@@ -16,9 +19,7 @@
 .logo p{
     margin:25px
 }
-.logo img{
-    width: 60px;
-    height: 60px;
+.image{
     padding: 5px 5px;
     border-radius: 50%;
 }
@@ -30,9 +31,18 @@
 .menu ul li{
     margin: 9px 25px;
     align-items: center;
+    color: rgb(1, 35, 228);
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 2px;
+}
+.menu ul .login{
+    background-color: rgb(238, 154, 43);
+    border-radius: 3px;
 }
 .login{
-    background-color: blueviolet;
-}.menu ul li Link :hover{
+    padding: 5px;
+}
+.menu ul li Link :hover{
     cursor: pointer;
 }

@@ -1,6 +1,13 @@
-.slider_item img{
+.slider_item{
+    padding-top: 75px;
+}
+
+.image{
+    height: 50vh;
     width: 100%;
-    height: 60vh;
-    border-radius: 7px;
+    border-radius: 2px;
     transition: 0.7s ease-in-out;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
