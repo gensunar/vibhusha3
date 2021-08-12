@@ -20,7 +20,7 @@ export default function ProductView(){
         }
         setProducts(allProduct)
     }
-    console.log(products)
+    //console.log(products)
     useEffect(() => {
         fetchData()
     }, [])

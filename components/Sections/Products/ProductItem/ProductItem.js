@@ -1,8 +1,12 @@
 import styles from './ProductItem.module.css'
 import Link from 'next/link'
+import router, {useRouter} from 'next/router'
 
 
 export default function ProductItem(props) {
+    const productRoute = () => {
+        router.push(`/products/${props.id}`)
+    }   
     return (
         <>
             <div className={styles.card}>
@@ -17,9 +21,8 @@ export default function ProductItem(props) {
                         Rs. {props.price}
                     </div>
                 </div>
-                <Link href={"/products/[productId]"} as={`/products/${props.id}`}><button className={styles.view_button}>View</button></Link>
+                <button className={styles.view_button} onClick= {productRoute}>View</button>
             </div>
         </>
     )
 }
-//style= {{backgroundImage: `url(${props.image})`}}
