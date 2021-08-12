@@ -9,6 +9,7 @@ export default function AdminNavbar() {
             <nav className={styles.navbar}>
                 <div className={styles.logo}>
                     <Image src={logo} className={styles.logo_image}
+                    alt = "Vibhusha"
                       width= {'60px'}
                       height ={'60px'}
                     />

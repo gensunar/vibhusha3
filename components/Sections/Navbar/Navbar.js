@@ -15,6 +15,7 @@ export default function Navbar(props) {
                 <div className={styles.logo}>
                     <Image className={styles.image}
                         src={logo}
+                        alt = "logo"
                         width= {'60px'}
                         height ={'60px'}
                     />
