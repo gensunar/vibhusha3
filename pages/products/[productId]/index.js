@@ -2,9 +2,10 @@ import Head from 'next/head';
 import styles from './productId.module.css'
 import ProductSlider from '../../../components/Sections/ProductDetail/ProductSlider'
 import Layout from '../../../components/Utils/Layout/Layout'
+import { baseurl } from '../../../constants/url';
 
 export async function getStaticPaths() {
-    const res = await fetch("http://localhost:5000/products/get-products")
+    const res = await fetch(`${baseurl}/products/get-products`)
     const data = await res.json()
     // console.log(data)
 
@@ -28,7 +29,7 @@ export async function getStaticPaths() {
 export async function getStaticProps(context) {
     const productId = context.params.productId
 
-    const res = await fetch(`http://localhost:5000/products/get-product-by-id/${productId}`)
+    const res = await fetch(`${baseurl}/products/get-product-by-id/${productId}`)
     const data = await res.json()
 
     return {
