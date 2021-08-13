@@ -7,14 +7,7 @@ export default function ProductView(){
     const [products, setProducts] = useState([])
     
     const fetchData = async () => {
-        const res = await fetch(`${baseurl}/products/get-products`,
-        {
-            method: "GET",
-            headers: {
-                Accept: "application/json"
-            },
-
-        })
+        const res = await fetch(`${baseurl}/products/get-products`)
         const data = await res.json()
         console.log(data)
 

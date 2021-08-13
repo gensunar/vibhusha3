@@ -7,7 +7,7 @@ import { baseurl } from '../../../constants/url';
 export async function getStaticPaths() {
     const res = await fetch(`${baseurl}/products/get-products`)
     const data = await res.json()
-    // console.log(data)
+    console.log(data)
 
     let ProductId = []
     for (const key in data)
