@@ -5,7 +5,7 @@ import Layout from '../../../components/Utils/Layout/Layout'
 import { baseurl } from '../../../constants/url';
 
 export async function getStaticPaths() {
-    const res = await fetch(`${baseurl}/products/get-products`)
+    const res = await fetch(`https://vibhashu-c0ea3-default-rtdb.firebaseio.com/Products.json`)
     const data = await res.json()
     console.log(data)
 
@@ -29,7 +29,7 @@ export async function getStaticPaths() {
 export async function getStaticProps(context) {
     const productId = context.params.productId
 
-    const res = await fetch(`${baseurl}/products/get-product-by-id/${productId}`)
+    const res = await fetch(`https://vibhashu-c0ea3-default-rtdb.firebaseio.com/Products/${productId}.json`)
     const data = await res.json()
 
     return {

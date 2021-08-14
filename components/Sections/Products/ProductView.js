@@ -7,7 +7,7 @@ export default function ProductView(){
     const [products, setProducts] = useState([])
     
     const fetchData = async () => {
-        const res = await fetch(`${baseurl}/products/get-products`)
+        const res = await fetch(`https://vibhashu-c0ea3-default-rtdb.firebaseio.com/Products.json`)
         const data = await res.json()
         console.log(data)
 
@@ -20,7 +20,7 @@ export default function ProductView(){
         }
         setProducts(allProduct)
     }
-    //console.log(products)
+    console.log(products)
     useEffect(() => {
         fetchData()
     }, [])
