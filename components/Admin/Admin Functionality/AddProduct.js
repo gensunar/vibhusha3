@@ -8,12 +8,12 @@ export default function AddProduct(props) {
     const [price, setPrice] = useState('')
     const [productId, setProductId]= useState('')
     const [productDescription, setProductDescription] = useState('')
-    const [productImage, setProductImage] = useState('')
     const [isLoading, setIsLoading] = useState(false)
 
     const [selectProductFile, setSelectProductFile] = useState(null)
     const [uploadedProductFile, setUploadedProductFile]= useState('')
-    const [productUrl, setProductUrl] = useState('')
+
+    const [productImage, setProductImage] = useState('')
 
     
 
@@ -56,7 +56,7 @@ export default function AddProduct(props) {
 
         if(data.isUploaded){
             setUploadedProductFile("Uploaded successfully....")
-            setProductUrl(data.productUrl)
+            setProductImage(data.productImage)
         }else{
             setUploadedProductFile("There is a problem in uploading!")
         }
@@ -73,17 +73,17 @@ export default function AddProduct(props) {
         formData.append("price", price)
         formData.append("productDescription", productDescription)
         formData.append("productId", productId)
-        formData.append("productImage",productUrl) 
+        formData.append("productImage",productImage) 
 
         const response = await fetch(`${baseurl}/products/post-products`,{
             method:"POST",
             body: formData
         })
         const data = await response.json()
+        console.log(data)
         setIsLoading(false) 
     }
     
-
     return (
         <>
             <div className={styles.main_container}>
@@ -94,12 +94,10 @@ export default function AddProduct(props) {
                         <form onSubmit={addProductHandler}>
                             <InputBox
                                 label="Product Image"
-                                id="productimage"
                                 type="file"
-                                value={productImage}
                                 onChange={handleImageInput}
                             />
-                            <button className={styles.upload_button} onClick={uploadImageHandler}>Upload</button>
+                            <button type="button" className={styles.upload_button} onClick={uploadImageHandler}>Upload</button>
                             <hr />
                             <InputBox
                                 label="Product Name"
@@ -122,7 +120,7 @@ export default function AddProduct(props) {
                                 value={productDescription}
                                 onChange={handleDescriptionInput}
                             />
-                            <button className={styles.add_button}>Add Product</button>
+                            <button type="submit" className={styles.add_button}>Add Product</button>
                         </form>
                     </div>
                 </div>

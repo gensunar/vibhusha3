@@ -1,8 +1,8 @@
 .navbar{
     display: flex;
     justify-content: space-between;
-    background-color: rgb(37, 223, 223);
-    color: #fff8dc;
+    background-color: transparent;
+    color: #ffffff;
     position: fixed;
     z-index: 100;
     width: 100vw;  
@@ -17,7 +17,11 @@
     margin-left: 10px;
 }
 .logo p{
-    margin:25px
+    margin:25px;
+    color: #000000;
+    font-weight:bolder;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 2px;
 }
 .image{
     padding: 5px 5px;
@@ -31,7 +35,7 @@
 .menu ul li{
     margin: 9px 25px;
     align-items: center;
-    color: rgb(1, 35, 228);
+    color: #000000;
     font-weight: bold;
     font-family: 'Roboto', sans-serif;
     letter-spacing: 2px;
