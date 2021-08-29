@@ -16,6 +16,7 @@ export default function Section1() {
                 <h1>VIBHUSHA</h1>
                 <h2>Where <span>CREATIVITY BRIGHTENS</span> Your Space</h2>
                 <h3>Art & Craft | Handmade</h3>
+                <button className={styles.read_button}>Read More</button>
             </div>
         </div>
         </>

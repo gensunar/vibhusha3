@@ -11,15 +11,16 @@
     left: 0;
     height: 75px;
 }
-.logo{
+.logo a{
     display: flex;
     align-items: center;
     margin-left: 10px;
 }
 .logo p{
-    margin:25px;
-    color: #000000;
+    margin:5px;
+    color: #1b1714;
     font-weight:bolder;
+    font-size: larger;
     font-family: 'Roboto', sans-serif;
     letter-spacing: 2px;
 }
@@ -46,6 +47,9 @@
 }
 .login{
     padding: 5px;
+}
+.logo:hover{
+    cursor: pointer;
 }
 .menu ul li Link :hover{
     cursor: pointer;

@@ -13,18 +13,22 @@ export default function Navbar(props) {
             </Head>
             <nav className={styles.navbar}>
                 <div className={styles.logo}>
-                    <Image className={styles.image}
-                        src={logo}
-                        alt = "logo"
-                        width= {'60px'}
-                        height ={'60px'}
-                    />
-                    <p>VIBHASHU</p>
+                    <Link href="/">
+                        <a>
+                            <Image className={styles.image}
+                                src={logo}
+                                alt="logo"
+                                width={'60px'}
+                                height={'60px'}
+                            />
+                            <p>VIBHASHU</p>
+                        </a>
+                    </Link>
                 </div>
                 <div className={styles.menu}>
                     <ul>
                         <li>
-                            <Link href="/about">About</Link>
+                            <Link href="/">Home</Link>
                         </li>
                         <li className={styles.login}>
                             <Link href="/login">Login</Link>

@@ -23,6 +23,22 @@
     justify-content: center;
     text-align: center;
 }
+.read_button{
+    border: none;
+    border-radius: 5px;
+    background-color: #7a3820;
+    padding: 9px;
+    margin: 5px;
+    font-weight: bold;
+    font-size: medium;
+    letter-spacing: 2px;
+    color: #ffffff;
+}
+.read_button:hover{
+    cursor: pointer;
+    background-color: #f3ece9;
+    border: 2px solid #441f12;
+}
 .text_container span{
     color: #be0a1c ;
     font-size: larger;
