@@ -1,0 +1,38 @@
+.main_container{
+    border: 2px solid blue;
+    position: relative;
+    height: 100vh;
+}
+.item_container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.items{
+    border: 2px solid red;
+    padding: 25px;
+    border-radius: 7px;
+    background-color: rgb(204, 214, 218);
+    color: rgb(32, 22, 22);
+    text-align: center;
+    padding-top: 30px;
+}
+.link{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.add_icon{
+    font-size: 3em;
+    color: rgb(5, 45, 58);
+}
+.link h2{
+    color: rgb(12, 17, 92);
+    letter-spacing: 1px;
+    font-weight: bold;
+    font-family: monospace;
+}

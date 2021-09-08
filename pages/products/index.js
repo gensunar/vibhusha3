@@ -9,7 +9,6 @@ export default function ProductPage() {
             <Head>
                 <title>Vibhusha</title>
             </Head>
-            <h1>All Products</h1>
             <ProductView />
         </Layout>
         </>

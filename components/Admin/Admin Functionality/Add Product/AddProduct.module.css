@@ -2,17 +2,22 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     justify-content: center;
     align-items: center;
     text-align: left;
+    border: 3px solid red;
+    position: relative;
 }
-.card{ 
+.card{
+    position: absolute;
+    right: 40%;
     background-color: #79BDDA;
     border-radius: 8px;
     width: 50%;
     padding: 5px 20px;
     box-shadow: 4px 5px 5px rgb(85, 75, 87);
+    border: 2px solid blue;
 }
 .form_control{
     justify-content: center;
@@ -25,7 +30,11 @@
     width: 100%;
     border: 2px solid #405761;
 }
-
+.form_control span{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 .header h2{
     text-align: center;
 }
@@ -42,7 +51,7 @@
     font-size: large;
 }
 .form_control hr{
-    border: 1px solid #c4c0c0;
+    border: 1px solid #c4c80c;
 }
 .add_button:hover{
     background-color: #021B25;
@@ -50,10 +59,32 @@
     color: #EBF1F3;
 }
 .upload_button{
-    padding: 8px;
     border-radius: 5px;
-    border: none;   
+    border: none;
+    margin-top: 1.3rem;
+    padding: 10px;
+    justify-content: center;
+    border: 2px solid red;   
+    letter-spacing: 1px;
+    font-weight: bold;
+    border: 2px solid rgb(71, 20, 5);
 }
 .upload_button:hover{
     cursor: pointer;
+    border: 2px solid rgb(71, 20, 5);
+    background-color: rgb(122, 30, 7);
+    transition: 0.2s ease;
+    color: #fff;
+}
+.button{
+    position: absolute;
+    padding: 20px;
+    border-radius: 5px;
+    border: none;
+    width: 100%;
+    left: 70%;
+}
+.button_function{
+    padding: 8px;
+    margin: 10px;
 }

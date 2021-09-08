@@ -11,7 +11,7 @@ export default function ProductItem(props) {
         <>
             <div className={styles.card}>
                 <div className={styles.image_container} 
-                    style= {{ backgroundImage: `url(${props.image})` }}
+                  style= {{ backgroundImage: `url(${props.image})` }}
                 >
                     {/* <Image className={styles.image} src={props.image} alt={props.title} layout="fill" /> */}
                 </div>

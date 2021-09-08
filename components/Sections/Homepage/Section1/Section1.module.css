@@ -29,6 +29,7 @@
     background-color: #7a3820;
     padding: 9px;
     margin: 5px;
+    border: 2px solid #220c05;
     font-weight: bold;
     font-size: medium;
     letter-spacing: 2px;
@@ -38,6 +39,8 @@
     cursor: pointer;
     background-color: #f3ece9;
     border: 2px solid #441f12;
+    color: #7a3820;
+    transition: 0.4s ease;
 }
 .text_container span{
     color: #be0a1c ;
