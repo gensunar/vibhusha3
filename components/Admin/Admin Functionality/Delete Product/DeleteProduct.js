@@ -26,9 +26,10 @@ export default function DeleteProduct(props) {
                 <h2 onClick={fetchData}>View all Product</h2>
                 <div className={styles.content}>
                     {product.map((item) => {
+                        key=item.ProductId
                         return (
                             <div className={styles.product_container}>
-                                <div className={styles.text_container} key={item.productId}>
+                                <div className={styles.text_container}>
                                     <h1>{item.productId}</h1>
                                     <h1>{item.productName}</h1>
                                     <h2>{item.price}</h2>
