@@ -28,9 +28,10 @@ export default function DeleteProduct(props) {
                     {product.map((item) => {
 
                         return (
-                            <div className={styles.product_container}>
+                            <>
+                            <div className={styles.product_container} key={item.productId}>
                                 <div className={styles.text_container}>
-                                    key={item.productId}
+
                                     <h1>{item.productId}</h1>
                                     <h1>{item.productName}</h1>
                                     <h2>{item.price}</h2>
@@ -39,6 +40,7 @@ export default function DeleteProduct(props) {
                                 </div>
                                 <button className={styles.delete}>Delete</button>
                             </div>
+                           </>
                         )
                     })}
                 </div>
