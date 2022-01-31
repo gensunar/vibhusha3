@@ -5,6 +5,13 @@
 .navbar{
     display: flex;
     justify-content: space-between;
+    position: fixed;
+    top: 0px;
+    left: 0;
+    background-color: transparent;
+    width: 100%;
+    z-index: 999;
+    height: 70px;
 }
 .logo{
     display: flex;

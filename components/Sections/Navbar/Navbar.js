@@ -3,7 +3,6 @@ import Link from 'next/link'
 import styles from './Navbar.module.css'
 import Head from 'next/head'
 import Image from 'next/image'
-import logo from '../../../public/images/logo.jpg'
 
 export default function Navbar(props) {
     return (
@@ -16,12 +15,12 @@ export default function Navbar(props) {
                     <Link href="/">
                         <a>
                             <Image className={styles.image}
-                                src={logo}
+                                src= "/images/logo.jpg"
                                 alt="logo"
-                                width={'60px'}
-                                height={'60px'}
+                                width='60'
+                                height='60'
                             />
-                            <p>VIBHASHU</p>
+                            <div className={styles.brand}>VIBHUSHA</div>
                         </a>
                     </Link>
                 </div>
@@ -30,8 +29,14 @@ export default function Navbar(props) {
                         <li>
                             <Link href="/">Home</Link>
                         </li>
-                        <li className={styles.login}>
-                            <Link href="/login">Login</Link>
+                        <li>
+                            <Link href="/login">About</Link>
+                        </li>
+                        <li>
+                            <Link href="/login">Contact</Link>
+                        </li>
+                        <li>
+                            <Link href="/login">Blog</Link>
                         </li>
                     </ul>
                 </div>

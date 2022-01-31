@@ -1,11 +1,10 @@
 import AdminLayout from '../../components/Utils/Admin Layout/AdminLayout'
-import AdminMain from '../../components/Admin/AdminMain/AdminMain'
-
+import AdminFront from '../../components/Admin/AdminFrontLayout/AdminFront'
 export default function Admin () {
     return(
         <>
             <AdminLayout />
-            <AdminMain />
+            <AdminFront />
         </>
     )
 }

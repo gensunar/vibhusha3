@@ -1,0 +1,12 @@
+.container{
+    background-color: brown;
+    position: fixed;
+    top: 75px;
+    height: 100vh;
+    
+}
+
+.list{
+    list-style: none;
+    padding: 7px;
+}

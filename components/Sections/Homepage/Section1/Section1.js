@@ -1,17 +1,17 @@
 import styles from './Section1.module.css'
 import Image from 'next/image'
 import Link from 'next/link'
-import background from '../../../../public/images/background.jpg'
 
 export default function Section1() {
     return (
         <>
         <div className={styles.container}>
             <div className={styles.image_container}>
-                <Image
-                    src ={background}
+                 <Image
+                    src = "/images/hero.jpg"
                     alt ="Home"
-                />
+                    layout= "fill"
+                /> 
             </div>
             <div className={styles.text_container}>
                 <h1>VIBHUSHA</h1>

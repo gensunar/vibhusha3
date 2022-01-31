@@ -9,7 +9,7 @@ export default function AdminMain() {
             <div className={styles.main_container}>
                 <div className={styles.item_container}>
                     <div className={styles.items}>
-                        <Link href='/admin/SaveProduct'>
+                        <Link href='/admin/add'>
                             <a className={styles.link}>
                                 <IconContext.Provider value={{ className: styles.add_icon }}>
                                     <BsPlusCircle />
@@ -29,7 +29,7 @@ export default function AdminMain() {
                         </Link>
                     </div>
                     <div className={styles.items}>
-                        <Link href='/admin/SaveProduct'>
+                        <Link href='/admin/edit'>
                             <a className={styles.link}>
                                 <IconContext.Provider value={{ className: styles.add_icon }}>
                                     <BsPen />

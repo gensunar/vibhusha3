@@ -1,0 +1,36 @@
+.main_container{
+    border: 2px solid red;
+    border-radius: 2px;
+    background-color: honeydew;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.content{
+    border: 8px solid green;
+    width: 80%;
+}
+.product_container{
+    border: 2px solid orange;
+
+}
+.text_container{
+    border: 2px solid blue
+}
+.delete{
+    padding: 8px;
+    border-radius: 4px;
+    border: 2px solid #000;
+    letter-spacing: 1px;
+    font-weight: bold;
+    font-size: medium;
+    color: rgb(228, 228, 236);
+    background-color: rgb(177, 13, 13);
+}
+.delete:hover{
+    color: #000;
+    background-color: #fff ;
+}
