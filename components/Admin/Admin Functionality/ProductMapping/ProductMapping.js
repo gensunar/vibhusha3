@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
 import styles from './ProductMapping.module.css'
 import Button from '../../../../components/Utils/UI/Button/Button'
-import ProductItems from "../ProductItems/ProductItems"
 
 export default function ProductMapping(props) {
     const [product, setProduct] = useState([])
