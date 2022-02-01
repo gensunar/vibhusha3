@@ -4,10 +4,7 @@ import styles from './DeleteProduct.module.css'
 export default function DeleteProduct(props) {
     return (
         <>
-<<<<<<< HEAD
-            <div>
                 <ProductMap />
-=======
             <h2>Deleting Product</h2>
             <div className={styles.main_container}>
                 <h2 onClick={fetchData}>View all Product</h2>
@@ -31,7 +28,6 @@ export default function DeleteProduct(props) {
                         )
                     })}
                 </div>
->>>>>>> a3b7a7b5ca42ae9e9d4a1079ca2b8d9d5ee665f7
             </div>
         </>
     )
