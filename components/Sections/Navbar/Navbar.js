@@ -30,10 +30,10 @@ export default function Navbar(props) {
                             <Link href="/">Home</Link>
                         </li>
                         <li>
-                            <Link href="/login">About</Link>
+                            <Link href="/about">About</Link>
                         </li>
                         <li>
-                            <Link href="/login">Contact</Link>
+                            <Link href="#footer">Contact</Link>
                         </li>
                         <li>
                             <Link href="/login">Blog</Link>

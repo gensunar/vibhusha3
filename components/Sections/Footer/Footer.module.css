@@ -1,4 +1,4 @@
-.main{
+.footer{
     background-color: rgb(5, 0, 0);
     color: #ffffff;
     width: 100%;
@@ -6,5 +6,111 @@
     left: 0;
     right: 0;
     position: relative;
-    padding-bottom: 50px;
+    padding-bottom: 7px;
+}
+.footer_info{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    padding: 30px 60px;
+    grid-gap: 40px;
+    justify-items: center;
+}
+.footer_brand{
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0px;
+}
+.nav{
+    
+    margin-top: 10px;
+}
+.title{
+    font-weight: bolder;
+    font-size: 1.3rem;
+    text-transform:uppercase;
+}
+.address{
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0px;
+}
+.office{
+    font-weight: bolder;
+    font-size: 1.3rem;
+    text-transform:uppercase;
+}
+.office_details,.street_line{
+    margin-top: 10px
+}
+.imlocation{
+    font-size: 1.3rem;
+}
+.contact{
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0px;
+}
+.contact_header{
+    font-weight: bolder;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+}
+.mail,.phone,.whatsapp{
+    display: flex;
+    margin-top: 10px;
+}
+.himail,.faphone{
+    font-size: 1.3rem;
+}
+.mail_info,.phone_info{
+    padding-left: 7px;
+}
+.social_icon{
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0px;
+}
+.connect{
+    text-transform: uppercase;
+    font-weight: bolder;
+    font-size: 1.3rem;
+}
+.icon{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 7px 0px;
+}
+.icons{
+    margin-top: 13px;
+    font-size: 1.5rem;
+    margin-left: 10px;
+}
+.bottom_footer{
+    display: flex;
+    flex-direction: column;
+    bottom: 0;
+}
+.bottom_two{
+    width: 100%;
+}
+.bottom_container{
+    display: flex;
+    justify-content: space-between;
+   
+}
+.privacy_terms{
+    padding: 0px 50px;
+}
+.terms{
+    padding: 0px 50px;
+}
+.privacy{
+    padding: 0px 50px;
+}
+.conditions{
+    padding: 0px 15px;
+}
+.hr{
+   width: 100%; 
 }
