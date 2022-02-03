@@ -1,5 +1,5 @@
 .main_container{
-    /* border: 2px dotted red; */
+    border: 2px dotted red; 
     height: 40vh;
     background-color: rgb(255, 246, 246);
 }

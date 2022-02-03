@@ -1,14 +1,15 @@
 .container{
-    height: calc(100vh-75px);
+    min-height: calc(100vh-75px);
     width: 100%;
-    /* background-color: red;
-    border: 2px dotted red; */
+    /*margin-top: 75px;
+    background-color: red;
+    border: 2px dotted red; 
+    border: 2px solid green; for navbar position fixed*/
 }
 .image_container{
     position: relative;
     width: 100%;
-    min-height: 90vh;
-    
+    min-height: 90vh; 
 }
 .text_container{
     position: absolute;
@@ -43,4 +44,8 @@
 .text_container span{
     color: #be0a1c ;
     font-size: larger;
+}
+
+@media (min-width: 768px) {
+
 }
