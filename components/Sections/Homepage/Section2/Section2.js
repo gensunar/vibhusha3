@@ -7,7 +7,7 @@ export default function Section2() {
         <div className={styles.main_container}>
             <div className={styles.container}>
                 <div className={styles.product_link}>
-                    <span>View Products</span>
+                    <span><Link href='/products'>View Products</Link></span>
                 </div>
                 <div className={styles.join_link}>
                     <span>Join Us</span>

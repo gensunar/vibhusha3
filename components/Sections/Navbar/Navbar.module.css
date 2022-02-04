@@ -85,7 +85,7 @@
         height: 100vh;
         position: fixed;
         animation: sideNavSlideIn 0.8s;
-        margin-top: 388px;
+        margin-top: 333px;
         left: 0;
     }
     .backdrop{
