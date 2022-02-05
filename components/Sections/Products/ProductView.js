@@ -31,7 +31,7 @@ return(
         <ProductItem 
             key = {product.productId}
             price = {product.price}
-            image = {product.productImage[0]}
+            image = {product.productImage}
             title = {product.productName}
             id = {product.productId}
             description = {product.productDescription}

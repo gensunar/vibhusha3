@@ -60,6 +60,9 @@
     display: flex;
     margin-top: 10px;
 }
+.mail,.phone,.whatsapp:hover{
+    cursor: pointer;
+}
 .himail,.faphone{
     font-size: 1.3rem;
 }
@@ -85,6 +88,9 @@
     margin-top: 13px;
     font-size: 1.5rem;
     margin-left: 10px;
+}
+.icons:hover{
+    cursor: pointer;
 }
 .bottom_footer{
     display: flex;
