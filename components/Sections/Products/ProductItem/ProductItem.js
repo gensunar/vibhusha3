@@ -9,7 +9,7 @@ export default function ProductItem(props) {
     }   
     return (
         <>
-            <div className={styles.card}>
+            <div className={styles.card} onClick={productRoute}>
                 <div className={styles.image_container} 
                   style= {{ backgroundImage: `url(${props.image})` }}
                 >
@@ -21,7 +21,6 @@ export default function ProductItem(props) {
                         Rs. {props.price}
                     </div>
                 </div>
-                <button className={styles.view_button} onClick= {productRoute}>View</button>
             </div>
         </>
     )

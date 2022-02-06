@@ -3,6 +3,8 @@ import ProductItem from "../Products/ProductItem/ProductItem"
 import styles from './ProductView.module.css' 
 import {baseurl} from '../../../constants/url'
 
+
+//fetching all data from firebase 
 export default function ProductView(){
     const [products, setProducts] = useState([])
     
@@ -24,8 +26,11 @@ export default function ProductView(){
     useEffect(() => {
         fetchData()
     }, [])
+
+    //passing the props to ProductItem page
 return(
     <>
+    <div className={styles.card_container}>
     <div className={styles.product_container}>
     {products.map((product)=> (
         <ProductItem 
@@ -37,6 +42,7 @@ return(
             description = {product.productDescription}
         />
     ))}
+    </div>
     </div>
     </>
 )

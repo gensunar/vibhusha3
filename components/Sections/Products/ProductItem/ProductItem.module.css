@@ -1,13 +1,13 @@
 .card{
     background-color: #e9eee8;
-    border-radius: 1px;
     padding-top: 5px;
-    box-shadow: 0px 7px 4px #2D2C24;
+    box-shadow: 0px 4px 8px 0 rgba(0,0,0,0.2);
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     transition: transform all ease .2s;
+    /* border: 2px solid blue; */
 }
 .image_container{
     height: 200px;
@@ -29,11 +29,11 @@
 .image{
     width: 100%;
     height: 100%;
-    border-radius: opx;
 }
 
 .text_container{
-    background-color: rgb(230, 230, 216);
+    padding: 2px 16px;
+    background-color: rgb(255, 255, 255);
 }
 
 .card .text{
@@ -47,7 +47,6 @@
     width: 100%;
     border: none;
     padding: 0.5em;
-    border-radius: 5px;
     font-weight: bold;
 }
 .view_button:hover{
@@ -59,5 +58,5 @@
 }
 
 .card:hover{
-    transform: scale(1.1);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }

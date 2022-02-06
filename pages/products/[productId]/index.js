@@ -1,9 +1,10 @@
 import Head from 'next/head';
 import styles from './productId.module.css'
-import ProductSlider from '../../../components/Sections/ProductDetail/ProductSlider'
+import IndividualProduct from '../../../components/Sections/ProductDetail/IndividualProduct'
 import Layout from '../../../components/Utils/Layout/Layout'
 import { baseurl } from '../../../constants/url';
 
+//getting the id of eacgh product and displaying it from the IndividualProduct page
 export async function getStaticPaths() {
     const res = await fetch(`https://vibhashu-c0ea3-default-rtdb.firebaseio.com/Products.json`)
     const data = await res.json()
@@ -38,6 +39,7 @@ export async function getStaticProps(context) {
         }
     }
 }
+//getting the props to IndividualProduct page
 export default function SingleProduct(props) {
     return (
         <>
@@ -45,7 +47,7 @@ export default function SingleProduct(props) {
             <Head>
                 <title>Vibhusha</title>
             </Head>
-            <ProductSlider product={props.product} />
+            <IndividualProduct product={props.product} />
         </Layout>
         </>
     )
