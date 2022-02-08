@@ -21,8 +21,8 @@
     flex-direction: column;
     padding: 10px 0px;
 }
+.footer_brand:hover{cursor: pointer;}
 .nav{
-    
     margin-top: 10px;
 }
 .title{
@@ -110,6 +110,9 @@
 }
 .terms{
     padding: 0px 50px;
+}
+.terms:hover{
+    cursor: pointer;
 }
 .privacy{
     padding: 0px 50px;
