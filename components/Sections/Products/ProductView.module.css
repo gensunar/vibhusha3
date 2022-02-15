@@ -2,9 +2,10 @@
     min-height: 90vh;
     border: 2px solid green;
     margin-top: 75px;
+    width: 100vw;
 }
 .product_container{
-    width: 100vw;
+    width: 100%;
     margin-top: 50px;
     display: grid;
     grid-template-columns: repeat(3,  1fr);
@@ -12,4 +13,28 @@
     grid-row-gap: 20px;
     padding: 0 2em;
     margin-bottom: 50px;
-}                                                      
+}  
+
+@media(max-width:768px){
+    .card_container{
+        min-height: 90vh;
+        width: 100vw;
+    }
+    .product_container{
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: 15px;
+        grid-row-gap: 15px;
+    }
+}
+@media(max-width:600px){
+    .card_container{
+        
+    }
+    .product_container{
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

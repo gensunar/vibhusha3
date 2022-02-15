@@ -62,3 +62,37 @@
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     cursor: pointer;
 }
+@media(max-width:768px){
+    .card{
+        
+    }
+    .image_container{
+        height: 200px;
+        width: 100%;
+    }
+    .text_container{
+        margin: 10px;
+    }
+    .title{
+        font-size: 1rem;
+    }
+    .description{
+        padding-top: 10px;
+        width: 250px;
+        font-size: 0.9rem;
+    }
+    .price{
+        padding-top: 10px;
+    }
+    .show_price{
+        font-size: 0.9rem;
+        margin-left: 10px;
+    }
+    .discount_price{
+        font-size: 0.9rem;
+    }
+    .discount{
+        margin-left: 10px;
+        font-size: 0.9rem;
+    }
+}

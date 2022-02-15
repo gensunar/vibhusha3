@@ -45,7 +45,7 @@ const Footer = () => {
             <hr className={styles.hr} />
           </div>
           <div className={styles.bottom_container}>
-            <div className={styles.privacy_terms}>
+            <div className={styles.copyright_terms}>
               <span>&copy; VIBHUSHA. All rights reserved 2022.</span>
             </div>
             <div className={styles.terms}>
