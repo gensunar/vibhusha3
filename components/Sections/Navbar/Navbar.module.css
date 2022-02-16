@@ -80,12 +80,12 @@
         border: 2px solid rgb(10, 10, 10);
     }
     .side_drawer{
-        width: 60%;
+        width: 80%;
         background-color: #e20909;
         height: 100vh;
         position: fixed;
         animation: sideNavSlideIn 0.8s;
-        margin-top: 333px;
+        margin-top: 632px;
         left: 0;
     }
     .backdrop{

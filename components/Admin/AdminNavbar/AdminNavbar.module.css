@@ -1,31 +1,59 @@
-.logo_image{
-    padding: 5px 5px;
-    border-radius: 50%;
-}
 .navbar{
     display: flex;
     justify-content: space-between;
+    background-color:#e20909;
+    color: #ffffff;
     position: fixed;
-    top: 0px;
+    width: 100%;  
+    align-items: center; 
+    z-index: 1000;
+    top: 0;
     left: 0;
-    background-color: transparent;
-    width: 100%;
-    z-index: 999;
-    height: 70px;
+    height: 75px;
+    padding: 0px 50px;
+    box-sizing: border-box;
 }
 .logo{
     display: flex;
     align-items: center;
 }
-.logo p{
-    margin:25px
+.logo a{
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
 }
-.menu_items ul{
+.brand{
+    font-weight: bolder;
+    padding-left: 25px;
+    font-size: 1.6rem;
+    letter-spacing: 3px;
+}
+.image{
+    width: 60px;
+    height: 60px;
+    background-image: url("/images/logo.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border-radius: 50%;
+}
+.menu ul {
     display: flex;
     align-items: center;
     list-style: none;
 }
-.menu_items ul li{
-    align-items: center;
+.menu ul li{
     margin: 9px 25px;
+    font-size: 1.3rem;
+    color: #ffffff;
+    font-weight: bolder;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 2px;
+}
+.logo:hover{
+    cursor: pointer;
+}
+.menu ul li:hover{
+    cursor: pointer;
+    color: rgb(202, 199, 192);
 }

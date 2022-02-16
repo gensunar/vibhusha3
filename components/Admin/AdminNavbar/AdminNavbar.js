@@ -1,31 +1,40 @@
-import Link from 'next/link'
-import styles from './AdminNavbar.module.css'
-import Image from 'next/image'
-import logo from '../../../public/images/logo.jpg'
+import Link from "next/link";
+import styles from "./AdminNavbar.module.css";
+import Image from "next/image";
+import Head from 'next/head'
 
 export default function AdminNavbar() {
-    return(
-        <>
-            <nav className={styles.navbar}>
-                <div className={styles.logo}>
-                    <Image src={logo} className={styles.logo_image}
-                    alt = "Vibhusha"
-                      width= {'60px'}
-                      height ={'60px'}
-                    />
-                    <p>VIBHASHU</p>
-                </div>
-                <div className={styles.menu_items}>
-                    <ul>
-                    <li>
-                        <Link href="/">Add Product</Link>
-                    </li>
-                    <li>
-                        <Link href="/admin/deleteProduct">Delete Product</Link>
-                    </li>
-                    </ul>
-                </div>
-            </nav>
-        </>
-    )
+  return (
+    <>
+      <Head>
+        <title>Admin:Vibhusha</title>
+      </Head>
+      <nav className={styles.navbar}>
+        <div className={styles.logo}>
+          <Link href="/">
+            <a>
+              <div className={styles.image}></div>
+              <div className={styles.brand}>VIBHUSHA</div>
+            </a>
+          </Link>
+        </div>
+        <div className={styles.menu}>
+          <ul>
+            <li>
+              <Link href="/">Home</Link>
+            </li>
+            <li>
+              <Link href="/about">About</Link>
+            </li>
+            <li>
+              <Link href="#footer">Contact</Link>
+            </li>
+            <li>
+              <Link href="/login">Blog</Link>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </>
+  );
 }

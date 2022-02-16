@@ -4,10 +4,10 @@
     box-shadow: 0px 4px 8px 0 rgba(0,0,0,0.2);
     text-align: center;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     justify-content: space-between;
     transition: transform all ease .2s;
-    /* border: 2px solid blue; */
 }
 .image_container{
     height: 300px;
@@ -24,7 +24,7 @@
     text-align: left;
 }
 .title{
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     font-weight: bold;
     text-align: left;
     text-transform: uppercase;
@@ -36,7 +36,7 @@
     width: 350px;
     white-space: nowrap;
     overflow: hidden;
-    font-size: 1.1rem;
+    font-size: 0.9rem;
 }
 .price{
     display: flex;
@@ -46,7 +46,7 @@
 }
 .show_price{
     margin-left: 12px;
-    font-size: 1.1rem;
+    font-size: 0.9rem;
 }
 .discount_price{
     text-decoration: line-through;
@@ -54,7 +54,7 @@
     font-size: 1.1rem;
 }
 .discount{
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     margin-left: 50px;
     color: #ff0000;
 }
@@ -62,37 +62,70 @@
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     cursor: pointer;
 }
-@media(max-width:768px){
+@media (min-width:768px){
     .card{
-        
+        background-color: #ffffff;
+        padding-top: 0px;
+        box-shadow: 0px 4px 8px 0 rgba(0,0,0,0.2);
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transition: transform all ease .2s;
+        /* border: 2px solid blue; */
     }
     .image_container{
-        height: 200px;
+        height: 300px;
         width: 100%;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        background-position: center;
     }
     .text_container{
-        margin: 10px;
+        display: flex;
+        flex-direction: column;
+        background-color: #ffffff;
+        margin: 20px;
+        text-align: left;
     }
     .title{
-        font-size: 1rem;
+        font-size: 1.3rem;
+        font-weight: bold;
+        text-align: left;
+        text-transform: uppercase;
     }
     .description{
-        padding-top: 10px;
-        width: 250px;
-        font-size: 0.9rem;
+        color: rgb(77, 77, 77);
+        padding-top: 15px;
+        text-overflow: ellipsis;
+        width: 270px;
+        white-space: nowrap;
+        overflow: hidden;
+        font-size: 1.1rem;
     }
     .price{
-        padding-top: 10px;
+        display: flex;
+        justify-content:flex-start;
+        font-weight: bold;
+        padding-top: 15px;
     }
     .show_price{
-        font-size: 0.9rem;
-        margin-left: 10px;
+        margin-left: 12px;
+        font-size: 1.1rem;
     }
     .discount_price{
-        font-size: 0.9rem;
+        text-decoration: line-through;
+        color: #9c9b9b;
+        font-size: 1.1rem;
     }
     .discount{
-        margin-left: 10px;
-        font-size: 0.9rem;
+        font-size: 1.1rem;
+        margin-left: 50px;
+        color: #ff0000;
     }
+    .card:hover{
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        cursor: pointer;
+    }
+    
 }

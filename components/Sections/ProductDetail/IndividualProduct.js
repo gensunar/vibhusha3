@@ -41,11 +41,11 @@ export default function ProductSlider(product) {
                 {product.product.productDescription}
               </span>
             </div>
-            <div className={styles.button}>
+          </div>
+          <div className={styles.button}>
               <button className={styles.cart}>ADD TO BAG</button>
               <button className={styles.buy}>BUY NOW</button>
             </div>
-          </div>
         </div>
       </div>
     </>
