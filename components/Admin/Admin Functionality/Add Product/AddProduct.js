@@ -87,6 +87,8 @@ export default function AddProduct(props) {
     return (
         <>
             <div className={styles.main_container}>
+                <span>{setUploadedProductFile}</span>
+                <span></span>
                 <div className={styles.card}>
                     <span className={styles.header}><h2>Add Product</h2></span>
                     <h2>{ }</h2>

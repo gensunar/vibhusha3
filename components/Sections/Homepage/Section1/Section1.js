@@ -7,7 +7,7 @@ export default function Section1() {
     <>
       <div className={styles.container}>
         <div className={styles.image_container}>
-          <Image src="/images/hero.jpg" alt="Home" layout="fill" />
+          <Image src="/images/hero.jpg" alt="Home" layout="fill" className={styles.image}/>
         </div>
         <div className={styles.text_container}>
           <span className={styles.brand_title}>VIBHUSHA</span>

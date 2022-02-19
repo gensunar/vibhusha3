@@ -8,6 +8,7 @@
     text-align: left;
     border: 3px solid red;
     position: relative;
+    margin-top: 75px;
 }
 .card{
     position: absolute;

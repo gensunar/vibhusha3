@@ -3,14 +3,14 @@ import Link from "next/link";
 import styles from "./Navbar.module.css";
 import Head from "next/head";
 import { useState } from "react";
-import SideNav from "./Side Navbar/Sidenav"
+import SideNav from "./Side Navbar/Sidenav";
 
 export default function Navbar(props) {
-    const [showSideNav, setShowSideNav] = useState(false)
+  const [showSideNav, setShowSideNav] = useState(false);
 
-    const toogleSideNav = () => {
-        setShowSideNav((prevState) => !prevState)
-    }
+  const toogleSideNav = () => {
+    setShowSideNav((prevState) => !prevState);
+  };
 
   return (
     <>
@@ -24,9 +24,11 @@ export default function Navbar(props) {
             <div className={styles.hamburger_line}></div>
             <div className={styles.hamburger_line}></div>
           </div>
-          <Link href="/"><a>
+          <Link href="/">
+            <a>
               <div className={styles.image}></div>
-              <div className={styles.brand}>VIBHUSHA</div></a>
+              <div className={styles.brand}>VIBHUSHA</div>
+            </a>
           </Link>
         </div>
         <div className={styles.menu}>
@@ -46,15 +48,13 @@ export default function Navbar(props) {
           </ul>
         </div>
         {showSideNav && (
-            <div className={styles.side_drawer}>
-                <SideNav onCloseSideNavbar={toogleSideNav} />
-            </div>
+          <div className={styles.side_drawer}>
+              <SideNav onCloseSideNavbar={toogleSideNav} />
+          </div>
         )}
       </nav>
       {showSideNav && (
-          <div className={styles.backdrop} onClick={toogleSideNav}>
-
-          </div>
+        <div className={styles.backdrop} onClick={toogleSideNav}></div>
       )}
     </>
   );

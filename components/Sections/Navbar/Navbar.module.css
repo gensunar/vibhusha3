@@ -81,12 +81,12 @@
     }
     .side_drawer{
         width: 80%;
-        background-color: #e20909;
         height: 100vh;
+        background-color: #e20909;
         position: fixed;
         animation: sideNavSlideIn 0.8s;
-        margin-top: 632px;
         left: 0;
+        top: 75px;
     }
     .backdrop{
         width: 100%;
@@ -95,7 +95,7 @@
         z-index: 10;
         top: 75px;
         right: 0px;
-        background-color: rgba(0, 0, 0, 0.2);
+        background-color: rgba(0, 0, 0, 0.8);
     } 
         @keyframes sideNavSlideIn {
         0% {

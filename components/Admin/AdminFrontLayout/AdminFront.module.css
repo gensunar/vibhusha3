@@ -10,3 +10,8 @@
 .center{
     flex: 4;
 }
+@media (min-width:768px){
+    .container{
+        
+    }
+}

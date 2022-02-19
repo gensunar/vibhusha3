@@ -1,4 +1,4 @@
-.sidnav{
+.sidenav{
     width: 100%;
 }
 .menu{
@@ -16,5 +16,5 @@
     font-weight: bold;
     font-size: 1.2rem;
     text-transform: uppercase;
-    padding: 10px 20px;
+    padding: 10px 25px;
 }

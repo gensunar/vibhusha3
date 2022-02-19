@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import styles from './ProductMapping.module.css'
 import Button from '../../../../components/Utils/UI/Button/Button'
 
+
 export default function ProductMapping(props) {
     const [product, setProduct] = useState([])
 
@@ -19,19 +20,18 @@ export default function ProductMapping(props) {
     console.log(product)
     return (
         <>
-            <h2>Deleting Product</h2>
             <div className={styles.main_container}>
-                <h2 onClick={fetchData}>View all Product</h2>
+                <span className={styles.view_product} onClick={fetchData}>View all Product</span>
                 <div className={styles.content}>
                     {product.map((item) => {
                         return (
                             <div className={styles.product_container} key={item.productId}>
                                 <div className={styles.text_container}>
-                                    <h1>{item.productId}</h1>
-                                    <h1>{item.productName}</h1>
-                                    <h2>{item.price}</h2>
-                                    <p>{item.productImage}</p>
-                                    <h2>{item.productDescription}</h2>
+                                    <div className={styles.product_data}><span className={styles.product_key} >Product ID:</span> {item.productId}</div>
+                                    <div className={styles.product_data}><span className={styles.product_key}>Product Name:</span> {item.productName}</div>
+                                    <div className={styles.product_data}><span className={styles.product_key}>Product Price:</span> {item.price}</div>
+                                    <div className={styles.product_data}><span className={styles.product_key}>ProductURL:</span> {item.productImage}</div>
+                                    <div className={styles.product_data}><span className={styles.product_key}>Product Desc:</span> {item.productDescription}</div>
                                 </div>
                             </div>
                         )

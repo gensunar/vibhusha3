@@ -1,19 +1,17 @@
-import Link from 'next/link'
-import styles from './Section2.module.css'
+import Link from "next/link";
+import styles from "./Section2.module.css";
 
 export default function Section2() {
-    return (
-        <>
-        <div className={styles.main_container}>
-            <div className={styles.container}>
-                <div className={styles.product_link}>
-                    <span><Link href='/products'>View Products</Link></span>
-                </div>
-                <div className={styles.join_link}>
-                    <span>Join Us</span>
-                </div>
+  return (
+    <>
+      <div className={styles.main_container}>
+          <div className={styles.inner_container}>
+            <span className={styles.header}>Our Products</span>
+            <div className={styles.card}>
+                
             </div>
-            </div>
-        </>
-    )
+          </div>
+      </div>
+    </>
+  );
 }
