@@ -10,12 +10,12 @@ export default function AdminSideNavbar() {
         </div>
         <hr className={styles.hr} />
         <div className={styles.item}>
-          <Link href="">
+          <Link href="/" passHref>
             <span className={styles.list}>Users</span>
           </Link>
           <span className={styles.list}>Products</span>
-          <span className={styles.product_list}><Link href="/admin/view">View Product</Link></span>
-          <span className={styles.product_list}><Link href="/admin/add">Add Product</Link></span>
+          <span className={styles.product_list}><Link href="/admin/view" passHref>View Product</Link></span>
+          <span className={styles.product_list}><Link href="/admin/add" passHref>Add Product</Link></span>
         </div>
       </div>
     </>
