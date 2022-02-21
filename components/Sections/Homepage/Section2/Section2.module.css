@@ -1,7 +1,8 @@
 .main_container{
-    border: 2px dotted blue; 
+    /* border: 2px dotted blue;  */
+    margin-top: 40px;
     height: 50vh;
-    background-color: rgb(247, 232, 232);
+    background-color: rgb(255, 255, 255);
 }
 .inner_container{
     padding: 10px 30px;

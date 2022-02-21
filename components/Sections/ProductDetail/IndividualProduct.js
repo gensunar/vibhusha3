@@ -17,7 +17,7 @@ export default function ProductSlider(product) {
             <div
               className={styles.image}
               style={{
-                backgroundImage: `url(${product.product.productImage})`,
+                backgroundImage: `url(${product.product.productImage})`
               }}
             >
               {/* <Image src={product.product.productImage} layout="fill" /> */}

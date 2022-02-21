@@ -5,7 +5,6 @@
     margin-top: 75px;
     /*background-color: red;
     border: 2px solid green; for navbar position fixed*/
-    border: 2px dotted red;
 }
 .image_container{
     width: 100%;
@@ -13,14 +12,12 @@
 }
 .image{
     position: relative;
-    object-fit: contain;
-    width: 100%;
-    height: unset !important;
+    object-fit: cover;
+    height: 45vh;
 }
 .text_container{
     margin-top: 0;
     width: 100%;
-    border: 2px solid green;
     position: absolute;
     top:50%;
     left: 50%;
@@ -35,13 +32,13 @@
 }
 .brand_title{
     color: Red;
-    font-size: 30px;
+    font-size: 25px;
     margin-bottom: 10px;
 }
 .brand_tagline{
     color: red;
     margin-bottom: 10px;
-    font: 15px;
+    font: 12px;
 }
 .brand_niche{
     color: #ff0000;
@@ -53,7 +50,6 @@
     background-color: #7a3820;
     padding: 9px;
     margin: 5px;
-    border: 2px solid #220c05;
     font-weight: bold;
     font-size: medium;
     letter-spacing: 2px;
@@ -74,25 +70,11 @@
         margin-top: 75px;
         /*background-color: red;
         border: 2px solid green; for navbar position fixed*/
-        border: 2px dotted green;
     }
     .image_container{
         position: relative;
         width: 100%;
         min-height: 90vh; 
-    }
-    .text_container{
-        position: absolute;
-        top:50%;
-        left: 50%;
-        color: #522a09;
-        letter-spacing: 3px;
-        font-weight: bold;
-        transform: translate(-50%, -50%);
-        justify-content: center;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
     }
     .brand_title{
         color: Red;
@@ -100,6 +82,7 @@
         margin-bottom: 10px;
     }
     .brand_tagline{
+        font-size: 1.3rem;
         color: red;
         margin-bottom: 10px;
     }
@@ -107,24 +90,4 @@
         color: #ff0000;
         margin-bottom: 10px;
     }
-    .read_button{
-        border: none;
-        border-radius: 5px;
-        background-color: #7a3820;
-        padding: 9px;
-        margin: 5px;
-        border: 2px solid #220c05;
-        font-weight: bold;
-        font-size: medium;
-        letter-spacing: 2px;
-        color: #ffffff;
-    }
-    .read_button:hover{
-        cursor: pointer;
-        background-color: #f3ece9;
-        border: 2px solid #441f12;
-        color: #7a3820;
-        transition: 0.4s ease;
-    }
-    
 }
