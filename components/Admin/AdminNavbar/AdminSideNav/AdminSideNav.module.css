@@ -1,0 +1,50 @@
+.main_container{
+    width: 18%;
+    background-color: rgb(253, 239, 113);
+    position: fixed;
+    min-height: 100vh;
+    box-shadow: 1px 2px 4px rgb(0 0 0 / 0.2);
+    border-top-right-radius: 25px;
+}
+.content{
+    padding: 15px;
+    width: 100%;
+}
+.hr{
+    
+}
+.dashboard{
+    font-size: 1.3rem;
+    font-weight: bold;
+    display: flex;
+    text-decoration: underline;
+    justify-content: center;
+}
+.home{
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.quick_container{
+    padding: 25px 15px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+.icon{
+    font-size: 1.1rem;
+    margin-right: 10px;
+    font-weight: bold;
+}
+.menu{
+    margin-bottom: 25px;
+}
+.menu:hover{
+    background-color: #ff0000;
+    padding: 7px;
+    border-radius: 8px;
+    color: #fff;
+    cursor: pointer;
+}

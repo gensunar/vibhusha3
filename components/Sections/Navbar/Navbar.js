@@ -34,16 +34,16 @@ export default function Navbar(props) {
         <div className={styles.menu}>
           <ul>
             <li>
-              <Link href="/">Home</Link>
+              <Link href="/"><a>Home</a></Link>
             </li>
             <li>
-              <Link href="/about">About</Link>
+              <Link href="/about"><a>About</a></Link>
             </li>
             <li>
-              <Link href="#footer">Contact</Link>
+              <Link href="#footer"><a>Contact</a></Link>
             </li>
             <li>
-              <Link href="/login">Blog</Link>
+              <Link href="/login"><a>Blog</a></Link>
             </li>
           </ul>
         </div>

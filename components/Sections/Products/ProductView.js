@@ -7,6 +7,7 @@ import {baseurl} from '../../../constants/url'
 //fetching all data from firebase 
 export default function ProductView(){
     const [products, setProducts] = useState([])
+    const [isLoading, setIsLoading] = useState(true)
     
     const fetchData = async () => {
         const res = await fetch(`https://vibhashu-c0ea3-default-rtdb.firebaseio.com/Products.json`)
@@ -21,9 +22,11 @@ export default function ProductView(){
             // console.log(allProduct)
         }
         setProducts(allProduct)
+        setIsLoading(false)
     }
     console.log(products)
     useEffect(() => {
+        
         fetchData()
     }, [])
 
@@ -31,6 +34,8 @@ export default function ProductView(){
 return(
     <>
     <div className={styles.card_container}>
+        {isLoading && (<span>Loading...</span>)}
+        {!isLoading && (
     <div className={styles.product_container}>
     {products.map((product)=> (
         <ProductItem 
@@ -43,6 +48,7 @@ return(
         />
     ))}
     </div>
+    )}
     </div>
     </>
 )

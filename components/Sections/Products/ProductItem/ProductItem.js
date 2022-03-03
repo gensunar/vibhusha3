@@ -3,8 +3,9 @@ import Link from "next/link";
 import router, { useRouter } from "next/router";
 
 export default function ProductItem(props) {
+  
   const productRoute = () => {
-    router.push(`/products/${props.id}`);
+     router.push(`/products/${props.id}`);
   };
 
   //Calculating the discount value

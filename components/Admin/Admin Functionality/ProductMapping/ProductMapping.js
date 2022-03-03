@@ -1,15 +1,26 @@
 import { useEffect, useState } from "react";
 import styles from "./ProductMapping.module.css";
-import Button from "../../../../components/Utils/UI/Button/Button";
-import Image from 'next/image'
 import { baseurl } from "../../../../constants/url";
+import axios from 'axios'
 
 export default function ProductMapping(props) {
   const [product, setProduct] = useState([]);
 
-  const handleDeleteInput = async () => {
-    const delRes = await fetch(`${baseurl}products/delete-product/`)
-  }
+  const handleDeleteInput = async (productId) => {
+    try{
+      const res = await axios.delete(`${baseurl}/products/delete-product/${productId}`)
+      setProduct(product.filter((item) => item.productId !== productId))
+    }
+    catch(err){
+      console.log(err)
+    }
+
+      // setProduct(product)
+    // const res= (`${baseurl}/products/delete-product/${productId}`)
+    // console.log(res)
+    // result = await delRes.json();
+
+  };
 
   const fetchData = async () => {
     const res = await fetch(
@@ -24,8 +35,9 @@ export default function ProductMapping(props) {
     }
     setProduct(allProduct);
   };
-  console.log(product);
-  return (
+    console.log(product);
+  
+    return (
     <>
       <div className={styles.main_container}>
         <span className={styles.view_product} onClick={fetchData}>
@@ -46,15 +58,23 @@ export default function ProductMapping(props) {
             {product.map((item) => (
               <tbody key={item.productId}>
                 <tr className={styles.tr_data_title}>
-                <td>...{item.productId.slice(10,15)}</td>
-                <td className={styles.image} style={{backgroundImage: `url(${item.productImage})`}}></td>
-                <td>{item.productName}</td>
-                <td>&#8377; {item.price}</td>
-                <td>{item.productDescription.slice(0, 5)}...</td>
-                <td>
-                  <button className={styles.button}>Edit</button>
-                  <button className={styles.button} onClick={() => handleDeleteInput(item.productId)}>Delete</button>
-                </td>
+                  <td>...{item.productId.slice(10, 15)}</td>
+                  <td
+                    className={styles.image}
+                    style={{ backgroundImage: `url(${item.productImage})` }}
+                  ></td>
+                  <td>{item.productName}</td>
+                  <td>&#8377; {item.price}</td>
+                  <td>{item.productDescription.slice(0, 5)}...</td>
+                  <td>
+                    <button className={styles.button}>Edit</button>
+                    <button
+                      className={styles.button}
+                      onClick={() => handleDeleteInput(item.productId)}
+                    >
+                      Delete
+                    </button>
+                  </td>
                 </tr>
               </tbody>
             ))}

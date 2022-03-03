@@ -1,35 +1,40 @@
 .main_container{
-    display: flex;
+    min-height: 100vh;
+    display: flex;    
+    position: relative;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    /* display: flex;
     flex-direction: column;
     width: 100%;
     height: 100vh;
     justify-content: center;
     align-items: center;
     text-align: left;
-    border: 3px solid red;
     position: relative;
-    margin-top: 75px;
+    margin-top: 75px; */
 }
 .card{
-    position: absolute;
-    right: 40%;
-    background-color: #79BDDA;
+    width: 80%;
+    position: relative;
+    background-color: #ffffff;
     border-radius: 8px;
-    width: 50%;
-    padding: 5px 20px;
-    box-shadow: 4px 5px 5px rgb(85, 75, 87);
-    border: 2px solid blue;
+    padding: 3px 20px;
+    box-shadow: 1px 1px 5px 2px rgb(85, 75, 87);
+    top: 10px;
+    margin-bottom: 70px;
 }
 .form_control{
     justify-content: center;
     width: 100%;
     font-weight: bold;
-    font-size: large;
+    font-size: 1.1rem;
 }
 .form_control input{
     margin: 15px 0;
     width: 100%;
-    border: 2px solid #405761;
+    border: 0.5px solid #000000;
 }
 .form_control span{
     display: flex;
@@ -38,6 +43,8 @@
 }
 .header h2{
     text-align: center;
+    text-transform: uppercase;
+    text-decoration: underline;
 }
 .add_button{
     justify-content: center;
@@ -51,31 +58,30 @@
     font-weight: bold;
     font-size: large;
 }
-.form_control hr{
-    border: 1px solid #c4c80c;
-}
 .add_button:hover{
     background-color: #021B25;
     cursor: pointer;
     color: #EBF1F3;
 }
 .upload_button{
+    background-color: #fff;
     border-radius: 5px;
     border: none;
     margin-top: 1.3rem;
+    margin-left: 30px;
     padding: 10px;
     justify-content: center;
-    border: 2px solid red;   
+    border: 1px solid red;   
     letter-spacing: 1px;
     font-weight: bold;
-    border: 2px solid rgb(71, 20, 5);
+    border: 1px solid rgb(71, 20, 5);
 }
 .upload_button:hover{
     cursor: pointer;
-    border: 2px solid rgb(71, 20, 5);
+    border: 1px solid rgb(71, 20, 5);
     background-color: rgb(122, 30, 7);
     transition: 0.2s ease;
-    color: #fff;
+    color: rgb(255, 255, 255);
 }
 .button{
     position: absolute;

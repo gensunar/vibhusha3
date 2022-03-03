@@ -2,7 +2,7 @@ import styles from "./IndividualProduct.module.css";
 import Image from "next/image";
 
 //importing the props from dynamic [productId] as product
-export default function ProductSlider(product) {
+export default function IndividualProduct(product) {
   console.log(product);
   //console.log(product.product.productImage);
 

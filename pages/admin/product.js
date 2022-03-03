@@ -7,7 +7,6 @@ const view = () => {
     <>
       <AdminLayout>
         <ViewProduct />
-        {/* <ProductMapping /> */}
       </AdminLayout>
     </>
   );

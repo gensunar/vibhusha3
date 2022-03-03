@@ -1,0 +1,17 @@
+.main_container{
+    position: relative;
+    min-height: 90vh;
+    width: 80%;
+    margin-top: 75px;
+    left: 20%;
+}
+.top_container{
+    width: 95%;
+    position: absolute;
+    background-color: rgb(253, 255, 152);
+    box-shadow: 0.9px 2px 4px 2px  rgb(0 0 0 /0.2);
+    height: 40vh;
+    margin-top: 30px;
+    border-radius: 10px;
+    padding: 20px;
+}

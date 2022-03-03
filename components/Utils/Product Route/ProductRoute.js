@@ -4,7 +4,7 @@ export default function ProductRoute(){
     return(
         <>
         <Link href="/products">
-            View All Products
+            <a>View All Products</a>
         </Link>
         </>
     )

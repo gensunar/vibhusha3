@@ -7,6 +7,7 @@ const InputBox = (props) => {
                 <label className={styles.label} htmlFor={props.id}>{props.label}</label>
                 <input
                     className={styles.input}
+                    placeholder={props.placeholder}
                     type={props.type}
                     id={props.id}
                     value={props.value}
