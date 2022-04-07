@@ -21,8 +21,8 @@ export default function Navbar(props) {
         <div className={styles.logo}>
           <div className={styles.hamburger} onClick={toogleSideNav}>
             <div className={styles.hamburger_line}></div>
-            <div className={styles.hamburger_line}></div>
-            <div className={styles.hamburger_line}></div>
+            <div className={styles.hamburger_line1}></div>
+            <div className={styles.hamburger_line2}></div>
           </div>
           <Link href="/">
             <a>
@@ -43,8 +43,13 @@ export default function Navbar(props) {
               <Link href="#footer"><a>Contact</a></Link>
             </li>
             <li>
-              <Link href="/login"><a>Blog</a></Link>
+              <Link href="/"><a>Blog</a></Link>
             </li>
+            <span className={styles.login}>
+            <li>
+              <Link href="/login"><a>Login</a></Link>
+            </li>
+            </span>
           </ul>
         </div>
         {showSideNav && (

@@ -1,7 +1,7 @@
 import InputBox from "../../../Utils/UI/InputBox/InputBox";
 import styles from "./AddProduct.module.css";
 import { useState, useEffect } from "react";
-import { baseurl } from "../../../../constants/url";
+import { base_url } from "../../../../constants/url";
 
 export default function AddProduct(props) {
   const [productName, setProductName] = useState("");
@@ -58,7 +58,7 @@ export default function AddProduct(props) {
     formData.append("file", selectProductFile);
     //console.log(selectProductFile)
 
-    const response = await fetch(`${baseurl}/products/upload-image`, {
+    const response = await fetch(`${base_url}/products/upload-image`, {
       method: "POST",
       body: formData,
     });

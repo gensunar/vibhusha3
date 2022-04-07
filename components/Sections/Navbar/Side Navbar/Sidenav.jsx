@@ -12,6 +12,7 @@ const Sidenav = (props) => {
                 <li><Link href='/about'>About</Link></li>
                 <li><Link href='#footer'>Contact</Link></li>
                 <li><Link href='/login'>Blog</Link></li>
+                <span className={styles.login}><li><Link href='/login'>Login</Link></li></span>
             </ul>
           </div>
       </div>

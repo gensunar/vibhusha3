@@ -2,16 +2,16 @@
     min-height: 90vh;
     margin-top: 75px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
     padding: 0px 20px;
 }
 .card{
-    background-color: #f3f3f3;
+    background-color: #ffffff;
     width: 100%;
-    border-radius: 20px;
-    box-shadow: 1px 1px 5px 2px rgb(0 0 0 /0.8);
+    box-shadow: 1px 1px 5px 2px rgba(134, 134, 134, 0.8);
     position: relative;
 }
 .registration_header{
@@ -20,7 +20,8 @@
     justify-content: center;
     font-size: 1.4rem;
     font-weight: bold;
-    background-image: linear-gradient(90deg, #64015f, #ff3c01);
+    text-decoration: underline;
+    background-image: linear-gradient(30deg, #64015f, #ff3c01);
     background-clip: text;
     color: transparent;
 }
@@ -29,15 +30,19 @@
 }
 .form label{
     margin-bottom:4px;
-    font-weight: bold;
     letter-spacing: 2px;
 }
 .form input{
-    margin-bottom: 15px;
     border: 0.5px solid black;
 }
 .form input:focus{
     border: 0.5px solid rgb(0, 255, 34);
+}
+.input_box{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 15px;
 }
 .registration_button{
     padding: 10px;
@@ -47,7 +52,7 @@
     font-weight: bold;
     font-size: 1rem;
     letter-spacing: 1px;
-    border-radius: 5px;
+    border-radius: 1px;
     cursor: pointer;
     margin-top: 10px;
     width: 100%;
@@ -59,15 +64,27 @@
     padding-top: 0;
     letter-spacing: 1px;
     font-size: 1.1rem;
+    align-items: center;
+    margin-top: 30px;
 }
 .enquire{
-    margin-bottom: 7px;
+    font-style: italic;
 }
 .login{
     cursor: pointer;
-    color: blue;
+    color: rgb(255, 0, 0);
     font-weight: bold;
     text-decoration: underline;
+}
+.error{
+    font-size: 0.9rem;
+    color: #ff0000;
+    justify-content: center;
+}
+.success{
+    font-size: 0.9rem;
+    color: #00e025;
+    justify-content: center;
 }
 @media (min-width:768px){
     .card{
