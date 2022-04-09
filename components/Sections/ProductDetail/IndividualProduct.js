@@ -1,17 +1,20 @@
 import styles from "./IndividualProduct.module.css";
 import Image from "next/image";
+import { useState } from "react";
 
 //importing the props from dynamic [productId] as product
 export default function IndividualProduct(product) {
   console.log(product);
   //console.log(product.product.productImage);
 
+  const [isLoading, setIsLoading] = useState(true)
   const value = 5666-product.product.price
   const discount = Math.round(value/5666*100)
 
   return (
     <>
       <div className={styles.main_container}>
+        {}
         <div className={styles.wrapper_container}>
           <div className={styles.image_container}>
             <div

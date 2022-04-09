@@ -40,6 +40,9 @@ export default function Navbar(props) {
               <Link href="/about"><a>About</a></Link>
             </li>
             <li>
+              <Link href="/products"><a>Product</a></Link>
+            </li>
+            <li>
               <Link href="#footer"><a>Contact</a></Link>
             </li>
             <li>

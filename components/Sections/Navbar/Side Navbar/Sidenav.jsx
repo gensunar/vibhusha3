@@ -10,6 +10,7 @@ const Sidenav = (props) => {
             <ul>
                 <li><Link href='/'>Home</Link></li>
                 <li><Link href='/about'>About</Link></li>
+                <li><Link href='/products'>Product</Link></li>
                 <li><Link href='#footer'>Contact</Link></li>
                 <li><Link href='/login'>Blog</Link></li>
                 <span className={styles.login}><li><Link href='/login'>Login</Link></li></span>
