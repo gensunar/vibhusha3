@@ -5,11 +5,16 @@ import Link from "next/link";
 import axios from "axios";
 import { local_url } from "../../../../constants/url";
 import { useRouter } from "next/router";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  onAuthStateChanged,
+  updateProfile,
+} from "firebase/auth";
 import { auth } from "../../../../firebase";
 
 const Registration = () => {
   const router = useRouter();
+  const [displayName, setDisplayName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -17,10 +22,11 @@ const Registration = () => {
   const [error, setError] = useState("");
   const [isSuccess, setIsSuccess] = useState(false);
   const [isError, setIsError] = useState(false);
-  
-  // const NameChangeHandler = (e) => {
-  //   setDisplayName(e.target.value);
-  // };
+  const [user, setUser] = useState("");
+
+  const NameChangeHandler = (e) => {
+    setDisplayName(e.target.value);
+  };
 
   const EmailChangeHandler = (e) => {
     setEmail(e.target.value);
@@ -32,6 +38,10 @@ const Registration = () => {
   const confirmPasswordChangeHandler = (e) => {
     setConfirmPassword(e.target.value);
   };
+
+  onAuthStateChanged(auth, (currentUser) => {
+    setUser(currentUser);
+  });
 
   const registrationHandler = async (e) => {
     e.preventDefault();
@@ -55,25 +65,35 @@ const Registration = () => {
     try {
       //Password Combination
 
-      if (!email ) {
+      if (!email) {
         return setError("*Email cannot be empty");
+      }else if (!displayName) {
+        return setError("*Name cannot be empty")
       }
-      else if (!password) {
-        return setError("*Password cannot be empty")
-      }
-      else if (!confirmPassword){
-        return setError("*Confirm Password cannot be empty")
+       else if (!password) {
+        return setError("*Password cannot be empty");
+      } else if (!confirmPassword) {
+        return setError("*Confirm Password cannot be empty");
       }
       if (validatePassword()) {
-        const user = await createUserWithEmailAndPassword(auth, email, password);
+        const user = await createUserWithEmailAndPassword(
+          auth,
+          email,
+          password
+        );
         console.log(user);
-        if(user){
-          setIsSuccess("Registration Successful")
+        if (user) {
+          const userInfo = await updateProfile(auth.currentUser,{displayName})
+          setIsSuccess("Registration Successful");
+          setDisplayName("")
+          setEmail("")
+          setPassword("")
+          setConfirmPassword("")
         }
       }
     } catch (error) {
       console.log(error.message);
-      setError(error.message)
+      setError(error.message);
     }
 
     // const response = await fetch(`${local_url}/admin/registration`, {
@@ -94,23 +114,23 @@ const Registration = () => {
         <div className={styles.card}>
           <span className={styles.registration_header}>NEW USER</span>
           <form className={styles.form} onSubmit={registrationHandler}>
-            {/* <div className={styles.input_box}> */}
-              {/* <InputBox
+            <div className={styles.input_box}>
+              <div className={styles.success}>
+                {isSuccess && (
+                  <span className={styles.success}>{isSuccess}</span>
+                )}
+              </div>
+              {error && <span className={styles.error}>{error}</span>}
+              <InputBox
                 placeholder="Enter your full name"
-                label="Display Name*"
+                label="Name*"
                 type="text"
                 id="displayname"
                 value={displayName}
                 onChange={NameChangeHandler}
-              /> */}
-            {/* </div> */}
+              />
+            </div>
             <div className={styles.input_box}>
-              <div className={styles.success}>
-            {isSuccess && (
-                <span className={styles.success}>{isSuccess}</span>
-              )}
-              </div>
-              {error && <span className={styles.error}>{error}</span>}
               <InputBox
                 placeholder="Enter your Email"
                 label="Email*"
@@ -150,6 +170,7 @@ const Registration = () => {
           <Link href="/login">
             <span className={styles.login}>Login Here</span>
           </Link>
+          <span>Logged in user: {user.email}</span>
         </div>
       </div>
     </>

@@ -2,10 +2,12 @@ import styles from "./Section1.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 export default function Section1() {
   const [isLoading, setIsLoading] = useState(false);
-
+  const user = useSelector((state) => state.user.user)
+  
   return (
     <div className={styles.container}>
       {isLoading && (<span>Loading....</span>)}
@@ -16,6 +18,7 @@ export default function Section1() {
               src="/images/hero.jpg"
               alt="Home"
               layout="fill"
+              priority= "true"
               className={styles.image}
             />
           </div>

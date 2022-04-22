@@ -34,6 +34,8 @@ export default function ProductView() {
   return (
     <>
       <div className={styles.card_container}>
+        {isLoading && <Loading />}
+        {!isLoading && (
         <div className={styles.product_container}>
           {products.map((product) => (
             <ProductItem
@@ -46,6 +48,7 @@ export default function ProductView() {
             />
           ))}
         </div>
+        )}
       </div>
     </>
   );
