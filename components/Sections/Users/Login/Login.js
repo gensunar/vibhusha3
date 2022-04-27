@@ -66,6 +66,12 @@ const Login = () => {
         })
       );
       localStorage.setItem("user", JSON.stringify(user));
+      if (user){
+        router.replace("/")
+      }
+      else{
+        return
+      }
     } catch (error) {
       console.log(error.message);
       setError(error.message);

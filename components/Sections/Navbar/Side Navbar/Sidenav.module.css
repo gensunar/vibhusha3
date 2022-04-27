@@ -12,18 +12,22 @@
     padding: 10px;
 }
 .menu ul li{
-    color: rgb(255, 0, 0);
+    color: #282c3f;
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: .875rem;
     text-transform: uppercase;
     padding: 10px 25px;
 }
 .login{
     margin-top: 10px;
     width: 70%;
-    border-radius: 7px;
-    background: linear-gradient(150deg, #ff5e00, #ff0000);
+    border: 1.5px solid rgb(172, 171, 171);
+    background: #fff;
+    text-align: left;
 }
 .login a{
-    color: #fff;
+    color: #ff0000;
+}
+.login:active{
+    background: linear-gradient(120deg, #dd5100, #ce0202);
 }
