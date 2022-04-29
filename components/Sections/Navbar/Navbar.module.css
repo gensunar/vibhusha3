@@ -149,8 +149,13 @@
     font-size: .8rem;
     padding: 5px 30px;
     letter-spacing: 3px;
+    margin: 15px;
+    border: 1.5px solid rgb(172, 171, 171);
+    color: red;
+    background: transparent;
 }
 .logout:hover{
+    border: 1.5px solid red;
     cursor: pointer;
 }
 /* .cart_icon{

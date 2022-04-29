@@ -6,19 +6,20 @@ import { useState, useEffect } from "react";
 import SideNav from "./Side Navbar/Sidenav";
 import { useSelector } from "react-redux";
 import {
-  FaRegUserCircle,
-  FaUserAlt,
-  FaAngleDown,
-  FaAngleUp,
-  FaShoppingCart,
-} from "react-icons/fa";
-import {HiOutlineShoppingBag, HiOutlineUserCircle, HiOutlineLogin} from "react-icons/hi"
+  HiOutlineShoppingBag,
+  HiOutlineUserCircle,
+  HiOutlineLogin,
+} from "react-icons/hi";
+import { useDispatch } from "react-redux";
+import { logout } from '../../../Redux/userSlice'
 
 export default function Navbar(props) {
   const [showSideNav, setShowSideNav] = useState(false);
   const [isUser, setIsUser] = useState(null);
   const [isMenu, setIsMenu] = useState(false);
   const user = useSelector((state) => state.user.user);
+
+  const dispatch = useDispatch();
 
   const toogleSideNav = () => {
     setShowSideNav((prevState) => !prevState);
@@ -33,6 +34,10 @@ export default function Navbar(props) {
     }
   }, []);
   // console.log("second", user.user.email);
+  const handleLogout = () => {
+    dispatch(logout())
+    localStorage.removeItem('user')
+  };
 
   return (
     <>
@@ -84,7 +89,9 @@ export default function Navbar(props) {
               <Link href="/login">
                 <button className={styles.login_button}>Login/Signup</button>
               </Link>
-              <span className={styles.login_icon}><HiOutlineLogin /></span>
+              <span className={styles.login_icon}>
+                <HiOutlineLogin />
+              </span>
             </div>
           ) : (
             <div className={styles.user}>
@@ -111,7 +118,9 @@ export default function Navbar(props) {
                   </span>
                   <span className={styles.menu_item}>My Profile</span>
                   <hr />
-                  <span className={styles.logout}>Logout</span>
+                  <button className={styles.logout} onClick={handleLogout}>
+                    Logout
+                  </button>
                 </div>
               )}
             </div>
