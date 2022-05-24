@@ -35,11 +35,11 @@ export async function getStaticProps(context) {
   const res = await fetch(
     `https://vibhashu-c0ea3-default-rtdb.firebaseio.com/Products/${productId}.json`
   );
-  const data = await res.json();
+  const product = await res.json();
 
   return {
     props: {
-      product: data,
+      product,
     },
   };
 }
@@ -56,3 +56,4 @@ export default function SingleProduct(props) {
     </>
   );
 }
+// 

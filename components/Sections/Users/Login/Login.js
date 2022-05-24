@@ -7,14 +7,16 @@ import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../../../firebase";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { login } from "../../../../Redux/userSlice";
+import { login } from "../../../../Redux/Slices/userSlice";
+import { FaGalacticSenate } from "react-icons/fa";
 
 const Login = () => {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
+  const [value, setValue] = useState("");
+  const [loading, setLoading] = useState(FaGalacticSenate);
 
   const user = useSelector((state) => state.user.user);
   const dispatch = useDispatch();
@@ -28,20 +30,25 @@ const Login = () => {
   //   }
   // })
 
-  // useEffect(() => {
-  //   onAuthStateChanged(auth,(currentUser) => {
-  //     if(currentUser){
-  //       dispatch(login({
-  //         id: currentUser.uid,
-  //         email: currentUser.email
-  //       }))
-  //       localStorage.setItem('vibhusha.authToken', JSON.stringify(currentUser.uid))
-  //       localStorage.setItem('vibhusha.emailId', JSON.stringify(currentUser.email))
-  //       console.log(currentUser.emailVerified)
-  //     }
-  //   })
-  // }, [])
- 
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        dispatch(
+          login({
+            user,
+          })
+        );
+        localStorage.setItem("user", JSON.stringify(user));
+      }
+      console.log("first", user);
+      if (user) {
+        router.replace("/");
+      } else {
+        return;
+      }
+    });
+  }, []);
+
   const EmailChangeHandler = (e) => {
     setEmail(e.target.value);
   };
@@ -52,30 +59,25 @@ const Login = () => {
 
   const loginHandler = async (e) => {
     e.preventDefault();
+    if (!email) {
+      setError("*Email cannot be empty");
+    } else if (!password) {
+      setError("Password cannot be empty");
+    }
     try {
-      if (!email) {
-        setError("*Email cannot be empty");
-      } else if (!password) {
-        setError("Password cannot be empty");
-      }
-      const user = await signInWithEmailAndPassword(auth, email, password);
-      console.log(user);
-      dispatch(
-        login({
-          payload: user,
-        })
-      );
-      localStorage.setItem("user", JSON.stringify(user));
-      if (user){
-        router.replace("/")
-      }
-      else{
-        return
-      }
+      setError("");
+      setLoading(true);
+      await signInWithEmailAndPassword(auth, email, password);
+      // dispatch(
+      //   login({
+      //     payload: user,
+      //   })
+      // );
+      // localStorage.setItem("user", JSON.stringify(user));
     } catch (error) {
-      console.log(error.message);
       setError(error.message);
     }
+    setLoading(false);
   };
 
   return (
@@ -83,9 +85,9 @@ const Login = () => {
       <div className={styles.main_container}>
         <div className={styles.card}>
           <span className={styles.login_header}>LOGIN FORM</span>
+          {error && <span className={styles.empty}>{error}</span>}
           <form className={styles.form} onSubmit={loginHandler}>
             <div className={styles.input_box}>
-              {error && <span className={styles.empty}>{error}</span>}
               <InputBox
                 placeholder="Enter your Email"
                 label="Email*"
@@ -108,7 +110,10 @@ const Login = () => {
             <div className={styles.password}>
               <span>forgot password?</span>
             </div>
-            <button type="submit" className={styles.login_button}>
+            <button
+              type="submit"
+              className={styles.login_button}
+            >
               Login
             </button>
           </form>

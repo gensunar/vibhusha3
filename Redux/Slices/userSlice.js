@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { userState } from "../components/Utils/User State/userState"
+import { userState } from "../../components/Utils/User State/userState"
 
 const userInfo = userState()
 

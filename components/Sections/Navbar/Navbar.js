@@ -11,19 +11,29 @@ import {
   HiOutlineLogin,
 } from "react-icons/hi";
 import { useDispatch } from "react-redux";
-import { logout } from '../../../Redux/userSlice'
+import { logout } from "../../../Redux/Slices/userSlice";
+import { auth } from "../../../firebase";
+import { useRouter } from "next/router";
 
 export default function Navbar(props) {
   const [showSideNav, setShowSideNav] = useState(false);
   const [isUser, setIsUser] = useState(null);
   const [isMenu, setIsMenu] = useState(false);
+  
   const user = useSelector((state) => state.user.user);
+  const quantity = useSelector((state) => state.cart.quantity)
+  console.log(quantity)
 
   const dispatch = useDispatch();
+  const router = useRouter();
 
   const toogleSideNav = () => {
     setShowSideNav((prevState) => !prevState);
   };
+  // const currentUser = false;
+  // const RequireAuth = ({ children }) => {
+  //   return currentUser ? children : <router to="/login" />;
+  // };
 
   useEffect(() => {
     const userData = JSON.parse(localStorage.getItem("user"));
@@ -35,8 +45,11 @@ export default function Navbar(props) {
   }, []);
   // console.log("second", user.user.email);
   const handleLogout = () => {
-    dispatch(logout())
-    localStorage.removeItem('user')
+    dispatch(logout());
+    auth.signOut();
+    localStorage.removeItem("user");
+    setIsUser(null);
+    router.replace("/");
   };
 
   return (
@@ -96,10 +109,14 @@ export default function Navbar(props) {
           ) : (
             <div className={styles.user}>
               <div className={styles.cart}>
-                <span className={styles.cart_icon}>
-                  <HiOutlineShoppingBag />
-                </span>
-                <span className={styles.badge}>21</span>
+                <Link href="/user/cart">
+                  <a>
+                    <span className={styles.cart_icon}>
+                      <HiOutlineShoppingBag />
+                    </span>
+                    <span className={styles.badge}>{quantity}</span>
+                  </a>
+                </Link>
               </div>
               <div className={styles.user_details}>
                 <span
@@ -113,10 +130,12 @@ export default function Navbar(props) {
               {isMenu && (
                 <div className={styles.dropdown_menu}>
                   <span className={styles.info}>Welcome!</span>
-                  <span className={styles.menu_item}>
-                    {isUser.user.displayName}
-                  </span>
-                  <span className={styles.menu_item}>My Profile</span>
+                  <span className={styles.menu_item}>{isUser.displayName}</span>
+                  <Link href="/user/">
+                    <span className={styles.menu_item}>
+                      <a>My Profile</a>
+                    </span>
+                  </Link>
                   <hr />
                   <button className={styles.logout} onClick={handleLogout}>
                     Logout

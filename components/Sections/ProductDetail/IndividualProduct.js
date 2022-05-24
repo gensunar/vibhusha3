@@ -1,15 +1,33 @@
 import styles from "./IndividualProduct.module.css";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { AiOutlineDelete, AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
+import { useDispatch, useSelector } from "react-redux";
+import { addProduct, products } from "../../../Redux/Slices/cartSlice";
 
 //importing the props from dynamic [productId] as product
-export default function IndividualProduct(product) {
-  console.log(product);
-  //console.log(product.product.productImage);
+export default function IndividualProduct({ product }) {
+  const dispatch = useDispatch();
+  const [test, setTest] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
+  const value = 5666 - product.price;
+  const discount = Math.round((value / 5666) * 100);
+  const products = useSelector((state) => state.cart.products);
 
-  const [isLoading, setIsLoading] = useState(true)
-  const value = 5666-product.product.price
-  const discount = Math.round(value/5666*100)
+  const cart = useSelector((state) => state.cart);
+  console.log(product);
+  const isInCart = (product) => {
+    return !!products.find((item) => item.productId === product.productId);
+  };
+
+  const cartHandler = () => {
+    dispatch(
+      addProduct({
+        ...product,
+      })
+    );
+    console.log(addProduct);
+  };
 
   return (
     <>
@@ -17,40 +35,68 @@ export default function IndividualProduct(product) {
         {}
         <div className={styles.wrapper_container}>
           <div className={styles.image_container}>
+            {/* <Image className={styles.image}
+              src= {product.product.productImage}
+              layout="fill"
+            /> */}
             <div
               className={styles.image}
               style={{
-                backgroundImage: `url(${product.product.productImage})`
+                backgroundImage: `url(${product.productImage})`,
               }}
-            >
-              {/* <Image src={product.product.productImage} layout="fill" /> */}
-            </div>
+            ></div>
           </div>
-          <div className={styles.product_text_container}>
-            <span className={styles.product_name}>
-              {product.product.productName}
-            </span>
-            <div className={styles.price}>
-            <span className={styles.discount_price}>&#x20B9; 5666</span>
-            <span className={styles.product_price}>
-              &#8377; {product.product.price}
-            </span>
-            <span className={styles.discount}>({discount}% off)</span>
-            </div>
-            <span className={styles.taxes}>inclusive of all taxes</span>
+          <div className={styles.info_container}>
+            <h1 className={styles.product_title}>{product.productName}</h1>
             <div className={styles.description_header}>
-              <span className={styles.product_about_header}>About this item:</span>
+              <span className={styles.product_about_header}>
+                About this item:
+              </span>
               <span className={styles.product_description}>
-                {product.product.productDescription}
+                {product.productDescription}
               </span>
             </div>
-          </div>
-          <div className={styles.button}>
-              <button className={styles.cart}>ADD TO BAG</button>
+            <div className={styles.price}>
+              <span className={styles.discount_price}>Rs. 5666</span>
+              <span className={styles.product_price}>Rs. {product.price}</span>
+              <span className={styles.discount}>({discount}% off)</span>
+            </div>
+            {/* <div className={styles.qty_container}>
+              <span className={styles.plus}>
+                <AiOutlinePlus />
+              </span>
+              <span className={styles.qty_counter}>2</span>
+              <span className={styles.minus}>
+                <AiOutlineMinus />
+              </span>
+            </div> */}
+            <div className={styles.button}>
+              {isInCart(product) && (
+                <button className={styles.cart} onClick={cartHandler}>
+                  ADD MORE
+                </button>
+              )}
+              {!isInCart(product) && (
+                <button className={styles.cart} onClick={cartHandler}>
+                  ADD TO BAG
+                </button>
+              )}
               <button className={styles.buy}>BUY NOW</button>
             </div>
+          </div>
         </div>
       </div>
     </>
   );
 }
+
+{
+  /* <div
+              className={styles.image}
+              style={{
+                backgroundImage: `url(${product.product.productImage})`,
+              }}
+            >
+              {/* <Image src={product.product.productImage} layout="fill" /> */
+}
+// </div>
