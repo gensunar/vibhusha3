@@ -10,6 +10,3 @@
 }
 .label{
 }
-.input:focus{
-    transition: ease-in-out;
-}

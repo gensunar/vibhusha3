@@ -1,5 +1,6 @@
 import styles from "./Cart.module.css";
 import Image from "next/image";
+import Link from "next/link"
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { AiOutlineDelete, AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
@@ -29,9 +30,11 @@ const Cart = () => {
               <span className={styles.bag}>
                 My Shopping Cart({cart.products.length})
               </span>
-              <span className={styles.empty_cart_title}>Your Cart is Empty</span>
+              <span className={styles.empty_cart_title}>
+                Your Cart is Empty
+              </span>
               <div className={styles.shopping}>
-              <button>Continue Shopping</button>
+                <button>Continue Shopping</button>
               </div>
             </div>
           </div>
@@ -86,7 +89,9 @@ const Cart = () => {
                   <span>Sub Total:(2 items)</span>
                   <span className={styles.total_price}>Rs. 10345</span>
                 </div>
-                <button className={styles.place_order}>PLACE ORDER</button>
+                <Link href="/user/cart/address" passHref>
+                  <button className={styles.place_order}>PLACE ORDER</button>
+                </Link>
               </div>
             </div>
           </>
