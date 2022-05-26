@@ -115,7 +115,18 @@
         font-weight: 600;
         letter-spacing: 1px;
         background: transparent;
-        color: #1a1a1a;
+        color: #ff0000;
+        margin-top: 10px;
+        text-align: center;
+    }
+    .bag_button{
+        border: 1.5px solid #b9b9b9;
+        padding: 20px 45px;
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        background: transparent;
+        color: #ff0000;
         margin-top: 10px;
         text-align: center;
     }

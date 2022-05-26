@@ -12,29 +12,40 @@ const cartSlice = createSlice({
 
   reducers: {
     addProduct: (state, action) => {
-      const itemCount = state.products.findIndex((item) => item.productId === action.payload.productId)
-      if (itemCount >= 0){
-        state.products[itemCount].cartQuantity += 1;
-      }else{
-        const newProduct = {...action.payload, cartQuantity: 1}
-        state.products.push(newProduct)
+      const itemExist = state.products.find(
+        (item) => item.productId === action.payload.productId
+      );
+      if (!itemExist) {
+        // state.products.push(action.payload);
+        const newProduct = { ...action.payload, cartQuantity: 1 };
+        state.products.push(newProduct);
+        state.quantity += 1;
       }
-      // state.products.push(action.payload);
+      // const itemCount = state.products.findIndex((item) => item.productId === action.payload.productId)
+      // if (itemCount >= 0){
+      //   state.products[itemCount].cartQuantity += 1;
+      // }else{
+      //   const newProduct = {...action.payload, cartQuantity: 1}
+      //   state.products.push(newProduct)
+      // }
       // state.total += action.payload.price;
-      state.quantity += 1;
     },
     increase: (state, { payload }) => {
-      const cartItem = state.products.find((item) => item.id === payload.id);
-      // cartItem.quantity = cartItem.quantity + 1
-      console.log(cartItem);
+      const cartItem = state.products.find(
+        (item) => item.productId === payload.id
+      );
+      cartItem.cartQuantity = cartItem.cartQuantity + 1;
+      console.log(cartItem)
     },
     decrease: (state, { payload }) => {
-      const cartItem = state.products.find((item) => item.id === payload.id);
-      // cartItem.quantity = cartItem.quantity - 1
-      console.log(cartItem);
+      const cartItem = state.products.find((item) => item.productId === payload.id);
+      cartItem.cartQuantity = cartItem.cartQuantity - 1
     },
+    remove: (state, action) => {
+      state.products = state.products.filter((item) => item.productId != action.payload)
+    }
   },
 });
 
-export const { addProduct, increase, decrease } = cartSlice.actions;
+export const { addProduct, increase, decrease, remove } = cartSlice.actions;
 export default cartSlice.reducer;

@@ -1,7 +1,8 @@
 import styles from "./IndividualProduct.module.css";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
-import { AiOutlineDelete, AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
+import { AiOutlineDelete, AiOutlinePlus, AiOutlineMinus, AiOutlineArrowRight } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { addProduct, products } from "../../../Redux/Slices/cartSlice";
 
@@ -15,7 +16,7 @@ export default function IndividualProduct({ product }) {
   const products = useSelector((state) => state.cart.products);
 
   const cart = useSelector((state) => state.cart);
-  console.log(product);
+  // console.log(product);
   const isInCart = (product) => {
     return !!products.find((item) => item.productId === product.productId);
   };
@@ -72,9 +73,9 @@ export default function IndividualProduct({ product }) {
             </div> */}
             <div className={styles.button}>
               {isInCart(product) && (
-                <button className={styles.cart} onClick={cartHandler}>
-                  ADD MORE
-                </button>
+                <Link href="/user/cart">
+                  <button className={styles.bag_button}>GO TO BAG <AiOutlineArrowRight /></button>
+                </Link>
               )}
               {!isInCart(product) && (
                 <button className={styles.cart} onClick={cartHandler}>

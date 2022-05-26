@@ -4,21 +4,29 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { AiOutlineDelete, AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
-import { decrease, increase } from "../../../../Redux/Slices/cartSlice";
+import { decrease, increase, remove } from "../../../../Redux/Slices/cartSlice";
 
 const CartItem = ({id, image, price, title, cQuantity}) => {
   const products = useSelector((state) => state.cart.products);
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(1);
-  const handleDecreaseQuantity = () => {
-    quantity > 1 && setQuantity(quantity - 1);
-  };
-
+  
+  //const handleDecreaseQuantity = () => {
+  //  quantity > 1 && setQuantity(quantity - 1);
+  //};
+  // const handleIncreaseQuantity = () => {
+  //   setQuantity(quantity + 1);
+  // };
   const handleIncreaseQuantity = () => {
-    setQuantity(quantity + 1);
+    dispatch(increase({id}))
+  }
+  const handleDecreaseQuantity = () => {
+    dispatch(decrease({id}))
   };
-console.log("hjhj",cQuantity)
-  // console.log("CQuabntirti",cartQuantity, price)
+  const handleRemoveItem = () => {
+    dispatch(remove())
+  }
+
   return (
     <>
       <div className={styles.cart_item_container}>
@@ -44,7 +52,7 @@ console.log("hjhj",cQuantity)
               <span className={styles.total_amount}>
                 Rs. {price * cQuantity}
               </span>
-              <span className={styles.remove}>Remove</span>
+              <span className={styles.remove} onClick={handleRemoveItem}>Remove</span>
             </div>
           </div>
           <hr className={styles.hr_line} />
