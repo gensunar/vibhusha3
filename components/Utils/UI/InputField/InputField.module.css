@@ -1,0 +1,12 @@
+.input_box{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.input{
+    border: none;
+    background-color: transparent;
+    padding: 10px;
+}
+.label{
+}

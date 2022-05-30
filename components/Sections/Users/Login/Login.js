@@ -16,7 +16,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [value, setValue] = useState("");
-  const [loading, setLoading] = useState(FaGalacticSenate);
+  const [loading, setLoading] = useState(false);
 
   const user = useSelector((state) => state.user.user);
   const dispatch = useDispatch();
@@ -59,6 +59,7 @@ const Login = () => {
 
   const loginHandler = async (e) => {
     e.preventDefault();
+    setLoading(true);
     if (!email) {
       setError("*Email cannot be empty");
     } else if (!password) {
@@ -110,12 +111,15 @@ const Login = () => {
             <div className={styles.password}>
               <span>forgot password?</span>
             </div>
-            <button
-              type="submit"
-              className={styles.login_button}
-            >
-              Login
-            </button>
+            {loading ? (
+              <button type="submit" className={styles.login_button}>
+                Logging In....
+              </button>
+            ) : (
+              <button type="submit" className={styles.login_button}>
+                Login
+              </button>
+            )}
           </form>
         </div>
         <div className={styles.other_details}>

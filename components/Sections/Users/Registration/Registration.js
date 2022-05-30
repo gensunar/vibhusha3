@@ -67,10 +67,9 @@ const Registration = () => {
 
       if (!email) {
         return setError("*Email cannot be empty");
-      }else if (!displayName) {
-        return setError("*Name cannot be empty")
-      }
-       else if (!password) {
+      } else if (!displayName) {
+        return setError("*Name cannot be empty");
+      } else if (!password) {
         return setError("*Password cannot be empty");
       } else if (!confirmPassword) {
         return setError("*Confirm Password cannot be empty");
@@ -83,12 +82,11 @@ const Registration = () => {
         );
         console.log(user);
         if (user) {
-          const userInfo = await updateProfile(auth.currentUser,{displayName})
           setIsSuccess("Registration Successful");
-          setDisplayName("")
-          setEmail("")
-          setPassword("")
-          setConfirmPassword("")
+          setDisplayName("");
+          setEmail("");
+          setPassword("");
+          setConfirmPassword("");
         }
       }
     } catch (error) {
@@ -170,7 +168,6 @@ const Registration = () => {
           <Link href="/login">
             <span className={styles.login}>Login Here</span>
           </Link>
-          <span>Logged in user: {user.email}</span>
         </div>
       </div>
     </>

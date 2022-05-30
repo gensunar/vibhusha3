@@ -8,10 +8,10 @@ import { useSelector } from "react-redux";
 import CartItem from "./CartItem/CartItem";
 
 const Cart = () => {
-  const cart = useSelector((state) => state.cart);
+  const {products, total} = useSelector((state) => state.cart);
   const [quantity, setQuantity] = useState(1);
-  console.log("cart", cart.products);
-
+  console.log("cart", products);
+  console.log("total", total)
   // const handleQuantity = (type) => {
   //   if (type === "decrease") {
   //     quantity > 1  && setQuantity(quantity - 1);
@@ -24,11 +24,11 @@ const Cart = () => {
   return (
     <>
       <div className={styles.cart_container}>
-        {cart.products.length == 0 ? (
+        {products.length == 0 ? (
           <div className={styles.empty_cart}>
             <div className={styles.empty_cart_header}>
               <span className={styles.bag}>
-                My Shopping Cart({cart.products.length})
+                My Shopping Cart({products.length})
               </span>
               <span className={styles.empty_cart_title}>
                 Your Cart is Empty
@@ -42,14 +42,14 @@ const Cart = () => {
           <>
             <div className={styles.cart_items}>
               <span className={styles.bag}>
-                My Shopping Cart({cart.products.length})
+                My Shopping Cart({products.length})
               </span>
               <div className={styles.header}>
                 <span className={styles.cart_title}>ITEMS ADDED:</span>
                 <button className={styles.remove_button}>Remove All</button>
               </div>
               <hr className={styles.hr_line} />
-              {cart.products.map((item) => (
+              {products.map((item) => (
                 <CartItem
                   key={item.productId}
                   title={item.productName}

@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { AiOutlineDelete, AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
-import { decrease, increase, remove } from "../../../../Redux/Slices/cartSlice";
+import { decrease, increase, remove, totalPrice } from "../../../../Redux/Slices/cartSlice";
 
 const CartItem = ({id, image, price, title, cQuantity}) => {
   const products = useSelector((state) => state.cart.products);
@@ -24,8 +24,9 @@ const CartItem = ({id, image, price, title, cQuantity}) => {
     dispatch(decrease({id}))
   };
   const handleRemoveItem = () => {
-    dispatch(remove())
+    dispatch(remove(id))
   }
+  console.log("total", totalPrice)
 
   return (
     <>

@@ -46,18 +46,19 @@
 }
 .login_button{
     padding: 10px;
-    border: 1.5px solid rgb(171, 172, 171);
-    background: #fff;
-    color: #ff0000;
+    background: linear-gradient(120deg, #ff0000, #ff5100);
+    color: #ffffff;
     font-weight: bold;
     font-size: 1rem;
     letter-spacing: 1px;
     border-radius: 1px;
     cursor: pointer;
     width: 100%;
+    border: none;
+    outline: none;
 }
 .login_button:hover{
-    border: 1.5px solid red;
+    background: #f10c0c;
 }
 .other_details{
     align-items: center;

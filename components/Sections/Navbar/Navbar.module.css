@@ -210,10 +210,6 @@
     cursor: pointer;
     color: rgb(255, 30, 0);
 }
-.menu ul li:active{
-    color: rgb(214, 240, 66);
-}
-
 
 @media (max-width: 768px){
     .menu ul li {
