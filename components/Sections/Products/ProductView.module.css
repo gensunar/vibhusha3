@@ -1,31 +1,27 @@
 .card_container{
     min-height: 100vh;
-    margin-top: 75px;
+    margin-top: 85px;
     width: 100%;
+
 }
 .product_container{
     width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    grid-gap: 1px;
+    grid-row-gap: 10px;
+    grid-column-gap: 5px;
     margin-top: 87px;
 }  
 @media (min-width:768px){
-    .card_container{
-        min-height: 90vh;
-        border: 2px solid rgb(0, 178, 233);
-        margin-top: 75px;
-        width: 100%;
-    }
     .product_container{
         width: 100%;
         margin-top: 50px;
         display: grid;
         align-items: center;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        grid-column-gap: 20px;
-        grid-row-gap: 20px;
-        padding: 0 2em;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        padding: 0 10px;
         margin-bottom: 50px;
+        grid-row-gap: 20px;
+        grid-column-gap: 15px;
     }  
 }

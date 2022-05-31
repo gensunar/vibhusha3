@@ -130,7 +130,8 @@
     padding: 0 15px;
     color: #ff0000;
 }
-.menu_item{
+.menu_item,
+.user_name{
     margin: 5px 0;
     font-size: .875rem;
     padding: 5px 30px;
@@ -140,17 +141,20 @@
 }
 .menu_item:hover{
     background: linear-gradient(150deg, #ff5e00, #ff0000);
-    border-radius: 15px;
+    border-radius: 2px;
     color: #fff;
+}
+.user_name:hover{
+    cursor: pointer;
 }
 .logout{
     text-transform: uppercase;
     font-weight: bolder;
     font-size: .8rem;
-    padding: 5px 30px;
+    padding: 8px 30px;
     letter-spacing: 3px;
     margin: 15px;
-    border: 1.5px solid rgb(172, 171, 171);
+    border: 1.5px solid #cecece;
     color: red;
     background: transparent;
 }
@@ -170,18 +174,17 @@
     justify-content: center;
 }
 .badge{
-    font-size: .7rem;
-    letter-spacing: 2px;
+    font-size: 12px;
     font-weight: bold;
     position: absolute;
-    top: 3px;
-    right: 5px;
+    top: 12px;
+    right: 9px;
     background: #ff0000;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 25px;
-    height: 25px;
+    width: 22px;
+    height: 22px;
     border-radius: 50%;
     color: #fff;
 } 
@@ -229,17 +232,14 @@
         justify-content: space-between;
     }
     .hamburger_line{
-        border-radius: 2px;
-        border: 1px solid rgb(10, 10, 10);
+        border: 1px solid #979797;
     }
     .hamburger_line1{
-        border-radius: 2px;
-        border: 1px solid #000;
+        border: 1px solid #979797;
         width: 70%;
     }
     .hamburger_line2{
-        border-radius: 2px;
-        border: 1px solid #000;
+        border: 1px solid #979797;
         width: 30%;
     }
     .side_drawer{

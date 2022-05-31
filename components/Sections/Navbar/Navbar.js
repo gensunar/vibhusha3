@@ -130,7 +130,7 @@ export default function Navbar(props) {
               {isMenu && (
                 <div className={styles.dropdown_menu}>
                   <span className={styles.info}>Welcome!</span>
-                  <span className={styles.menu_item}>{isUser.displayName}</span>
+                  <span className={styles.user_name}>{isUser.displayName}</span>
                   <Link href="/user/">
                     <span className={styles.menu_item}>
                       <a>My Profile</a>

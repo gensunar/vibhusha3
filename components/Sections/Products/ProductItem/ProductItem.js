@@ -25,8 +25,8 @@ export default function ProductItem(props) {
           <span className={styles.title}>{props.title}</span>
           <span className={styles.description}>{props.description}</span>
           <div className={styles.price}>
-            <span className={styles.discount_price}>&#x20B9; 5666</span>
-            <span className={styles.show_price}>&#x20B9; {props.price}</span>
+            <span className={styles.show_price}>&#x20B9;{props.price}</span>
+            <span className={styles.discount_price}>&#x20B9;5666</span>
             <span className={styles.discount}>({discount}% off)</span>
           </div>
         </div>

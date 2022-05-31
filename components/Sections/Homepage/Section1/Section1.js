@@ -28,11 +28,11 @@ export default function Section1() {
               Where CREATIVITY BRIGHTENS Your Space
             </span>
             <span className={styles.brand_niche}>Art & Craft | Handmade</span>
-            <div className={styles.read}>
+            {/* <div className={styles.read}>
               <Link href="/about" passHref>
                 <button className={styles.read_button}>Read More</button>
               </Link>
-            </div>
+            </div> */}
           </div>
         </>
       )}
