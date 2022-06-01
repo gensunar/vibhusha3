@@ -34,7 +34,7 @@ const CartItem = ({id, image, price, title, cQuantity}) => {
         <div className={styles.left_wrapper}>
           <div className={styles.data_container}>
             <div className={styles.image_container}>
-              <Image src={image} layout="fill" objectFit="cover" />
+              <Image className={styles.image} src={image} layout="fill" width="100%" height="100%" />
             </div>
             <div className={styles.text_container}>
               <span className={styles.title}>{title}</span>

@@ -2,7 +2,12 @@ import styles from "./IndividualProduct.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { AiOutlineDelete, AiOutlinePlus, AiOutlineMinus, AiOutlineArrowRight } from "react-icons/ai";
+import {
+  AiOutlineDelete,
+  AiOutlinePlus,
+  AiOutlineMinus,
+  AiOutlineArrowRight,
+} from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { addProduct, products } from "../../../Redux/Slices/cartSlice";
 
@@ -36,19 +41,17 @@ export default function IndividualProduct({ product }) {
         {}
         <div className={styles.wrapper_container}>
           <div className={styles.image_container}>
-            {/* <Image className={styles.image}
-              src= {product.product.productImage}
-              layout="fill"
-            /> */}
-            <div
+            <Image
               className={styles.image}
-              style={{
-                backgroundImage: `url(${product.productImage})`,
-              }}
-            ></div>
+              src={product.productImage}
+              alt={product.productName}
+              layout="fill"
+            />
           </div>
           <div className={styles.info_container}>
-            <h1 className={styles.product_title}>{product.productName}</h1>
+            <div className={styles.product_title_header}>
+              <h1 className={styles.product_title}>{product.productName}</h1>
+            </div>
             <div className={styles.description_header}>
               <span className={styles.product_about_header}>
                 About this item:
@@ -74,7 +77,9 @@ export default function IndividualProduct({ product }) {
             <div className={styles.button}>
               {isInCart(product) && (
                 <Link href="/user/cart">
-                  <button className={styles.bag_button}>GO TO BAG <AiOutlineArrowRight /></button>
+                  <button className={styles.bag_button}>
+                    GO TO BAG <AiOutlineArrowRight />
+                  </button>
                 </Link>
               )}
               {!isInCart(product) && (

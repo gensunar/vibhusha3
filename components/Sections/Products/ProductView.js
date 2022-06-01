@@ -34,21 +34,24 @@ export default function ProductView() {
   return (
     <>
       <div className={styles.card_container}>
-        {isLoading && <Loading />}
-        {!isLoading && (
-        <div className={styles.product_container}>
-          {products.map((product) => (
-            <ProductItem
-              key={product.productId}
-              price={product.price}
-              image={product.productImage}
-              title={product.productName}
-              id={product.productId}
-              description={product.productDescription}
-            />
-          ))}
-        </div>
+        {isLoading ? (
+          <Loading />
+        ) : (
+          <>
+            {/* <div className={styles.product_container}> */}
+            {products.map((product) => (
+              <ProductItem
+                key={product.productId}
+                price={product.price}
+                image={product.productImage}
+                title={product.productName}
+                id={product.productId}
+                description={product.productDescription}
+              />
+            ))}
+          </>
         )}
+        {/* </div> */}
       </div>
     </>
   );

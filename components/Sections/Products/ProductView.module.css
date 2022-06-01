@@ -1,27 +1,18 @@
 .card_container{
     min-height: 100vh;
-    margin-top: 85px;
-    width: 100%;
-
-}
-.product_container{
-    width: 100%;
+    width: 98%;
+    margin: 75px auto 10px auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    grid-row-gap: 10px;
-    grid-column-gap: 5px;
-    margin-top: 87px;
-}  
-@media (min-width:768px){
-    .product_container{
-        width: 100%;
-        margin-top: 50px;
-        display: grid;
-        align-items: center;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        padding: 0 10px;
-        margin-bottom: 50px;
-        grid-row-gap: 20px;
-        grid-column-gap: 15px;
-    }  
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px 1px;
 }
+@media (min-width:768px){
+    .card_container{
+        background: #f0ffea;
+        width: 100%;
+        grid-template-columns: repeat(auto-fit, minmax(250px, min-content));
+        grid-gap: 10px 10px;
+        padding: 20px;
+    }
+}
+
