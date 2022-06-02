@@ -7,10 +7,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { decrease, increase, remove, totalPrice } from "../../../../Redux/Slices/cartSlice";
 
 const CartItem = ({id, image, price, title, cQuantity}) => {
-  const products = useSelector((state) => state.cart.products);
+  const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
-  const [quantity, setQuantity] = useState(1);
-  
+ 
   //const handleDecreaseQuantity = () => {
   //  quantity > 1 && setQuantity(quantity - 1);
   //};
@@ -26,15 +25,17 @@ const CartItem = ({id, image, price, title, cQuantity}) => {
   const handleRemoveItem = () => {
     dispatch(remove(id))
   }
-  console.log("total", totalPrice)
-
+  useEffect(() => {
+    dispatch(totalPrice())
+  }, [cart])
+  
   return (
     <>
       <div className={styles.cart_item_container}>
         <div className={styles.left_wrapper}>
           <div className={styles.data_container}>
             <div className={styles.image_container}>
-              <Image className={styles.image} src={image} layout="fill" width="100%" height="100%" />
+              <Image className={styles.image} src={image} layout="fill" />
             </div>
             <div className={styles.text_container}>
               <span className={styles.title}>{title}</span>

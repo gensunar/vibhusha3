@@ -45,7 +45,17 @@ const cartSlice = createSlice({
       state.products = state.products.filter((item) => item.productId != action.payload)
     },
     totalPrice: (state, action) => {
-      state.total += action.payload.price;
+      let {cartItemTotal} = state.products.reduce((cartTotal, product)=> {
+        const {price, cartQuantity} = product
+        const itemTotal = price * cartQuantity
+
+        cartTotal.cartItemTotal += itemTotal
+
+        return cartTotal
+      }, {
+        cartItemTotal: 0,
+      })
+      state.total = cartItemTotal
     }
   },
 });

@@ -46,6 +46,7 @@ export default function IndividualProduct({ product }) {
               src={product.productImage}
               alt={product.productName}
               layout="fill"
+              priority="true"
             />
           </div>
           <div className={styles.info_container}>

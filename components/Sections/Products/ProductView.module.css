@@ -5,6 +5,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 10px 1px;
+    background: #e0fdd5;
 }
 @media (min-width:768px){
     .card_container{

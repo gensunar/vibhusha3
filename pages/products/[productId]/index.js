@@ -6,7 +6,6 @@ import { useState } from "react";
 
 //getting the id of eacgh product and displaying it from the IndividualProduct page
 export async function getStaticPaths() {
-  
   const res = await fetch(
     `https://vibhashu-c0ea3-default-rtdb.firebaseio.com/Products.json`
   );
@@ -49,6 +48,10 @@ export default function SingleProduct(props) {
     <>
       <Layout>
         <Head>
+          <meta
+            name="viewport"
+            content="width=device-width,height=device-height,initial-scale=1.0"
+          />
           <title>Vibhusha</title>
         </Head>
         <IndividualProduct product={props.product} />
@@ -56,4 +59,4 @@ export default function SingleProduct(props) {
     </>
   );
 }
-// 
+//

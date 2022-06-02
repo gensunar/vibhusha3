@@ -9,18 +9,7 @@ import CartItem from "./CartItem/CartItem";
 
 const Cart = () => {
   const {products, total} = useSelector((state) => state.cart);
-  const [quantity, setQuantity] = useState(1);
-  console.log("cart", products);
-  console.log("total", total)
-  // const handleQuantity = (type) => {
-  //   if (type === "decrease") {
-  //     quantity > 1  && setQuantity(quantity - 1);
-  //   } else {
-  //     setQuantity(quantity + 1);
-  //   }
-  //   console.log(type);
-  // };
-
+  
   return (
     <>
       <div className={styles.cart_container}>
@@ -67,7 +56,7 @@ const Cart = () => {
                 <div className={styles.right_text_container}>
                   <div className={styles.summary_text}>
                     <span>Total MRP: </span>
-                    <span className={styles.summary_text_data}>Rs. 8799 </span>
+                    <span className={styles.summary_text_data}>Rs. {total}</span>
                   </div>
                   <div className={styles.summary_text}>
                     <span>Discount on MRP:</span>
@@ -87,7 +76,7 @@ const Cart = () => {
                 <hr />
                 <div className={styles.sub_total}>
                   <span>Sub Total:(2 items)</span>
-                  <span className={styles.total_price}>Rs. 10345</span>
+                  <span className={styles.total_price}>Rs. {total}</span>
                 </div>
                 <Link href="/user/cart/address" passHref>
                   <button className={styles.place_order}>PLACE ORDER</button>

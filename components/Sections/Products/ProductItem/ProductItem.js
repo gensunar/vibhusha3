@@ -1,7 +1,7 @@
 import styles from "./ProductItem.module.css";
 import Link from "next/link";
 import router, { useRouter } from "next/router";
-import Image from "next/image"
+import Image from "next/image";
 
 export default function ProductItem(props) {
   const productRoute = () => {
@@ -15,11 +15,13 @@ export default function ProductItem(props) {
   return (
     <>
       <div className={styles.card} onClick={productRoute}>
-        <div
-          className={styles.image_container}
-          // style={{ backgroundImage: `url(${props.image})` }}
-        >
-          <Image className={styles.image} src={props.image} alt={props.title} layout="fill" width='100%' height="100%" />
+        <div className={styles.image_container}>
+          <Image
+            className={styles.image}
+            src={props.image}
+            alt={props.title}
+            layout="fill"
+          />
         </div>
         <div className={styles.text_container}>
           <span className={styles.title}>{props.title}</span>
