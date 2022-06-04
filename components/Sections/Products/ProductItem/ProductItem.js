@@ -21,6 +21,7 @@ export default function ProductItem(props) {
             src={props.image}
             alt={props.title}
             layout="fill"
+            priority="true"
           />
         </div>
         <div className={styles.text_container}>

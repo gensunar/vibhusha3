@@ -1,7 +1,7 @@
 import InputBox from "../../../Utils/UI/InputBox/InputBox";
 import styles from "./AddProduct.module.css";
 import { useState, useEffect } from "react";
-import { base_url } from "../../../../constants/url";
+import { base_url } from "../../../../constants/url"
 
 export default function AddProduct(props) {
   const [productName, setProductName] = useState("");
@@ -90,7 +90,7 @@ export default function AddProduct(props) {
     formData.append("productImage", productImage);
     formData.append("usage", usage);
 
-    const response = await fetch(`${baseurl}/products/post-products`, {
+    const response = await fetch(`${base_url}/products/post-products`, {
       method: "POST",
       body: formData,
     });
@@ -121,6 +121,7 @@ export default function AddProduct(props) {
                   Upload
                 </button>
               </span>
+              {uploadedProductFile && <span>{uploadedProductFile}</span>}
               <InputBox
                 placeholder="PRODUCT CATEGORY"
                 label="Category"
