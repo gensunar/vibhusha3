@@ -21,8 +21,8 @@ export default function Navbar(props) {
   const [isMenu, setIsMenu] = useState(false);
   
   const user = useSelector((state) => state.user.user);
-  const quantity = useSelector((state) => state.cart.quantity)
-  console.log(quantity)
+  const cart = useSelector((state) => state.cart)
+  console.log(cart)
 
   const dispatch = useDispatch();
   const router = useRouter();
@@ -52,6 +52,7 @@ export default function Navbar(props) {
     router.replace("/");
   };
 
+  console.log(auth.currentUser)
   return (
     <>
       <Head>
@@ -114,7 +115,7 @@ export default function Navbar(props) {
                     <span className={styles.cart_icon}>
                       <HiOutlineShoppingBag />
                     </span>
-                    <span className={styles.badge}>{quantity}</span>
+                    <span className={styles.badge}>{cart.products.length}</span>
                   </a>
                 </Link>
               </div>

@@ -46,11 +46,6 @@ const Registration = () => {
   const registrationHandler = async (e) => {
     e.preventDefault();
 
-    // const formData = new FormData();
-    // formData.append("displayName", displayName);
-    // formData.append("email", email);
-    // formData.append("password", password);
-    // formData.append("confirmPassword", confirmPassword);
     const validatePassword = () => {
       let isValid = true;
       if (password !== "" && confirmPassword !== "") {
@@ -90,20 +85,8 @@ const Registration = () => {
         }
       }
     } catch (error) {
-      console.log(error.message);
       setError(error.message);
     }
-
-    // const response = await fetch(`${local_url}/admin/registration`, {
-    //   method: "POST",
-    //   body: formData,
-    // });
-    // const data = await response.json();
-    // console.log(data);
-    // if (data.errorMessage) {
-    //   setIsError(true)
-    //   console.log((data.errorMessage.message));
-    // }
   };
 
   return (

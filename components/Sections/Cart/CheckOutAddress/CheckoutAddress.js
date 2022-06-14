@@ -1,9 +1,14 @@
+import { useState, useEffect } from "react";
 import styles from "./CheckoutAddress.module.css";
-import InputField from "../../../Utils/UI/InputField/InputField";
 import Link from "next/link";
-import { useState } from "react";
+import { useRouter } from "next/router";
+import InputField from "../../../Utils/UI/InputField/InputField";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth, db } from "../../../../firebase";
 
 const Checkout = () => {
+  const router = useRouter();
+
   const [custName, setCustName] = useState("");
   const [custMobile, setCustMobile] = useState("");
   const [pincode, setPincode] = useState("");
@@ -15,6 +20,7 @@ const Checkout = () => {
 
   const [show, setShow] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [isUser, setIsUser] = useState("");
 
   const [nameError, setNameError] = useState("");
   const [mobileError, setMobileError] = useState("");
@@ -23,6 +29,12 @@ const Checkout = () => {
   const [townError, setTownError] = useState("");
   const [stateError, setStateError] = useState("");
   const [districtError, setDistrictError] = useState("");
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (currentUser) => {
+      setIsUser(currentUser);
+    });
+  }, []);
 
   const handleNameInput = (e) => {
     setCustName(e.target.value);
@@ -49,7 +61,7 @@ const Checkout = () => {
     setState(e.target.value);
   };
 
-  const handleAddress = (e) => {
+  const handleAddress = async (e) => {
     e.preventDefault();
     try {
       if (!custName) {
@@ -98,11 +110,32 @@ const Checkout = () => {
           return setStateError("Only characters are allowed");
         }
       }
+
+      const formData = new FormData();
+      formData.append("id", isUser.uid);
+      formData.append("custName", custName);
+      formData.append("custMobile", custMobile);
+      formData.append("pincode", pincode);
+      formData.append("address", address);
+      formData.append("town", town);
+      formData.append("landmark", landmark);
+      formData.append("district", district);
+      formData.append("state", state);
+
+      const response = await fetch(`http://localhost:5000/cart/save-address`, {
+        method: "POST",
+        body: formData,
+      });
+      if (response) {
+        router.push("/user/cart/review-order");
+      }
+      console.log(response);
       setShow(true);
     } catch (err) {
       console.log(err);
     }
   };
+  // console.log("isUser",isUser.uid)
 
   return (
     <>
@@ -227,46 +260,12 @@ const Checkout = () => {
                 </div>
               </div>
             </div>
-            <button type="submit" className={styles.continue_button}>
-              Continue
-            </button>
+            <div className={styles.button}>
+              <button type="submit" className={styles.continue_button}>
+                Continue
+              </button>
+            </div>
           </form>
-        </div>
-        <div className={styles.checkout_right_wrapper}>
-          <div className={styles.right}>
-            <span className={styles.summary}>Order Summary</span>
-            <hr />
-            <div className={styles.right_text_container}>
-              <div className={styles.summary_text}>
-                <span>Total MRP: </span>
-                <span className={styles.summary_text_data}>Rs. 8799 </span>
-              </div>
-              <div className={styles.summary_text}>
-                <span>Discount on MRP:</span>
-                <span className={styles.summary_text_data}> Rs. 799</span>
-              </div>
-              <div className={styles.summary_text}>
-                <span>Shipping Charges:</span>
-                <span className={styles.summary_text_data}>Rs. 99 | Free</span>
-              </div>
-              <div className={styles.summary_text}>
-                <span>Tax:</span>
-                <span className={styles.summary_text_data}>NA</span>
-              </div>
-            </div>
-            <hr />
-            <div className={styles.sub_total}>
-              <span>Sub Total:(2 items)</span>
-              <span className={styles.total_price}>Rs. 10345</span>
-            </div>
-            {show && (
-              <Link href="/user/cart/address" passHref>
-                <button className={styles.place_order}>
-                  Proceed to checkout
-                </button>
-              </Link>
-            )}
-          </div>
         </div>
       </div>
     </>
@@ -274,3 +273,44 @@ const Checkout = () => {
 };
 
 export default Checkout;
+
+{
+  /* <div className={styles.checkout_right_wrapper}>
+          <div className={styles.right_wrapper}>
+            <div className={styles.right}>
+              <span className={styles.summary}>Order Summary</span>
+              <hr />
+              <div className={styles.right_text_container}>
+                <div className={styles.summary_text}>
+                  <span>Total MRP: </span>
+                  <span className={styles.summary_text_data}>Rs. </span>
+                </div>
+                <div className={styles.summary_text}>
+                  <span>Discount on MRP:</span>
+                  <span className={styles.summary_text_data}> Rs. 799</span>
+                </div>
+                <div className={styles.summary_text}>
+                  <span>Shipping Charges:</span>
+                  <span className={styles.summary_text_data}>
+                    Rs. 99 | Free
+                  </span>
+                </div>
+                <div className={styles.summary_text}>
+                  <span>Tax:</span>
+                  <span className={styles.summary_text_data}>NA</span>
+                </div>
+              </div>
+              <hr />
+              <div className={styles.sub_total}>
+                <span>Sub Total:(2 items)</span>
+                <span className={styles.total_price}>Rs.</span>
+              </div>
+              {show && (
+                <Link href="/user/cart/address" passHref>
+                  <button className={styles.place_order}>PLACE ORDER</button>
+                </Link>
+              )}
+            </div>
+          </div>
+        </div> */
+}

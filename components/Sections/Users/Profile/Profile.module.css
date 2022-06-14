@@ -3,9 +3,25 @@
     margin-top: 75px;
     min-height: 100vh;
     background: rgb(255, 255, 249);
-    padding: 50px 150px;
+    padding: 50px 100px;
 }
 .details_container{
     background-color: #fff;
     min-height: 90vh;
+}
+.account{
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+.items{
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+}
+.items li{
+    list-style: none;
+    margin-bottom: 10px;
+}
+.items li a{
+    text-decoration: none;
 }

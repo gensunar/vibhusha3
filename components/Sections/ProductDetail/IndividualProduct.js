@@ -8,13 +8,15 @@ import {
   AiOutlineMinus,
   AiOutlineArrowRight,
 } from "react-icons/ai";
+import { local_url } from '../../../constants/url'
 import { useDispatch, useSelector } from "react-redux";
-import { addProduct, products } from "../../../Redux/Slices/cartSlice";
+import { addProduct } from "../../../Redux/Slices/cartSlice";
 
 //importing the props from dynamic [productId] as product
 export default function IndividualProduct({ product }) {
+  const user = useSelector((state) => state.user.user);
   const dispatch = useDispatch();
-  const [test, setTest] = useState("");
+  const [test, setTest] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const value = 5666 - product.price;
   const discount = Math.round((value / 5666) * 100);
@@ -25,16 +27,31 @@ export default function IndividualProduct({ product }) {
   const isInCart = (product) => {
     return !!products.find((item) => item.productId === product.productId);
   };
+  useEffect(() => {
+    setTest(products)
+    console.log("HEllo product effecrt changed")
+  }, [cart])
 
-  const cartHandler = () => {
+  const cartHandler = (product) => {
     dispatch(
-      addProduct({
+      addProduct({  
         ...product,
-      })
+      }),
     );
-    console.log(addProduct);
+    console.log("prooo",addProduct);
+    console.log("first", cart)
   };
-
+  // const cartDbHandler = async() => {
+  //   var formData = new FormData()
+  //   formData.append('products', JSON.stringify(test))
+  //   const response = await fetch(`${local_url}/cart/save-cart`, {
+  //     method: "POST",
+  //     mode: 'cors',
+  //     body: formData,
+  //   });
+  // }
+  // console.log("ihssi",cartDbHandler)
+  
   return (
     <>
       <div className={styles.main_container}>
@@ -84,7 +101,7 @@ export default function IndividualProduct({ product }) {
                 </Link>
               )}
               {!isInCart(product) && (
-                <button className={styles.cart} onClick={cartHandler}>
+                <button className={styles.cart} onClick={()=>cartHandler(product)}>
                   ADD TO BAG
                 </button>
               )}
@@ -96,14 +113,3 @@ export default function IndividualProduct({ product }) {
     </>
   );
 }
-
-{
-  /* <div
-              className={styles.image}
-              style={{
-                backgroundImage: `url(${product.product.productImage})`,
-              }}
-            >
-              {/* <Image src={product.product.productImage} layout="fill" /> */
-}
-// </div>
