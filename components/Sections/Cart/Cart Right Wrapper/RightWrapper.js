@@ -1,6 +1,17 @@
-import styles from './RightWrapper.module.css'
-import Link from "next/link"
+import styles from "./RightWrapper.module.css";
+import Link from "next/link";
+import { totalPrice } from "../../../../Redux/Slices/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+
 const RightWrapper = () => {
+  const dispatch = useDispatch()
+  const cart = useSelector((state) => state.cart);
+
+  useEffect(() => {
+    dispatch(totalPrice());
+  }, [cart, dispatch]);
+
   return (
     <>
       <div className={styles.right_wrapper}>
@@ -10,7 +21,7 @@ const RightWrapper = () => {
           <div className={styles.right_text_container}>
             <div className={styles.summary_text}>
               <span>Total MRP: </span>
-              <span className={styles.summary_text_data}>Rs. </span>
+              <span className={styles.summary_text_data}>Rs.{cart.total}</span>
             </div>
             <div className={styles.summary_text}>
               <span>Discount on MRP:</span>

@@ -14,7 +14,7 @@ import {
   totalPrice,
 } from "../../../../Redux/Slices/cartSlice";
 
-const CartItem = ({ id, image, price, title, cQuantity }) => {
+const CartItem = ({ id, image, price, title, cQuantity, actualPrice, category }) => {
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
@@ -27,9 +27,6 @@ const CartItem = ({ id, image, price, title, cQuantity }) => {
   const handleRemoveItem = () => {
     dispatch(remove(id));
   };
-  useEffect(() => {
-    dispatch(totalPrice());
-  }, [cart, dispatch]);
 
   return (
     <>
@@ -45,7 +42,10 @@ const CartItem = ({ id, image, price, title, cQuantity }) => {
           </div>
           <div className={styles.product_info}>
             <div className={styles.text_container}>
+              <div className={styles.title_container}>
               <span className={styles.title}>{title}</span>
+              <span className={styles.category}>{category}</span>
+              </div>
               <div className={styles.qty_container}>
                 <span className={styles.minus} onClick={handleDecreaseQuantity}>
                   <AiOutlineMinus />
@@ -56,10 +56,18 @@ const CartItem = ({ id, image, price, title, cQuantity }) => {
                 </span>
               </div>
               <div className={styles.bottom_row}>
-                <span className={styles.price}>Rs. {price}</span>
-                <span className={styles.total_amount}>
-                  Rs. {price * cQuantity}
-                </span>
+                <div className={styles.price_container}>
+                  <span className={styles.price}>Rs.{price}</span>
+                  <span className={styles.actual_price}>Rs.{actualPrice}</span>
+                </div>
+                <div className={styles.amount_container}>
+                  <span className={styles.total_amount}>
+                    Rs.{price * cQuantity}
+                  </span>
+                  <span className={styles.discount_amount}>
+                    Rs.{actualPrice * cQuantity}
+                  </span>
+                </div>
                 <span className={styles.remove} onClick={handleRemoveItem}>
                   <MdClose />
                 </span>
@@ -73,45 +81,3 @@ const CartItem = ({ id, image, price, title, cQuantity }) => {
 };
 
 export default CartItem;
-
-{
-  /* <div className={styles.cart_item_container}>
-<div className={styles.left_wrapper}>
-  <div className={styles.data_container}>
-    <div className={styles.image_container}>
-      <Image className={styles.image} src={image} layout="fill" />
-    </div>
-    <div className={styles.info_container}>
-      <div className={styles.text_container}>
-        <span className={styles.title}>{title}</span>
-        <span className={styles.remove} onClick={handleRemoveItem}>
-          <MdClose />
-        </span>
-      </div>
-      <div className={styles.bottom_row}>
-        <div className={styles.qty_container}>
-          <span className={styles.minus} onClick={handleDecreaseQuantity}>
-            <AiOutlineMinus />
-          </span>
-          <span className={styles.qty_counter}>{cQuantity}</span>
-          <span className={styles.plus} onClick={handleIncreaseQuantity}>
-            <AiOutlinePlus />
-          </span>
-        </div>
-        <div className={styles.total}>
-          <span className={styles.price}>Rs. {price}</span>
-          <span className={styles.total_amount}>
-            Rs. {price * cQuantity}
-          </span>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div className={styles.savings}><span className={styles.savings_icon}><RiCouponLine /></span>
-  <span className={styles.savings_data}> Total savings:Rs. 1234</span></div>
-  <hr className={styles.hr_line} />
-</div>
-</div> */
-}
-
-// styles={{backgroundImage: `url(${image})`}}
