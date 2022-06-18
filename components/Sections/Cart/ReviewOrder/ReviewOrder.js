@@ -2,10 +2,18 @@ import { useSelector } from "react-redux";
 import styles from "./ReviewOrder.module.css";
 import Image from "next/image";
 import RightWrapper from "../Cart Right Wrapper/RightWrapper";
-
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+import Cart from "../Cart";
 const ReviewOrder = () => {
+  const router = useRouter()
   const cart = useSelector((state) => state.cart);
   console.log(cart.products);
+
+  if(cart.products.length<1){
+    return <Cart />
+  }
+
   return (
     <>
       <div className={styles.review_order_container}>
@@ -54,7 +62,7 @@ const ReviewOrder = () => {
                         </span>
                       </div>
                       <div className={styles.price_column}>
-                        <span className={styles.price}>Rs.{item.price}</span>
+                        <span className={styles.price}>Rs.{item.price*item.cartQuantity}</span>
                         <span className={styles.actual_price}>
                           Rs.{item.actualPrice}
                         </span>

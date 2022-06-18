@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "./ProductMapping.module.css";
-import { baseurl } from "../../../../constants/url";
+import { base_url } from "../../../../constants/url";
 import axios from 'axios'
 
 export default function ProductMapping(props) {
@@ -8,7 +8,7 @@ export default function ProductMapping(props) {
 
   const handleDeleteInput = async (productId) => {
     try{
-      const res = await axios.delete(`${baseurl}/products/delete-product/${productId}`)
+      const res = await axios.delete(`${base_url}/products/delete-product/${productId}`)
       setProduct(product.filter((item) => item.productId !== productId))
     }
     catch(err){
