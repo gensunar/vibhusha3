@@ -29,8 +29,8 @@ const ReviewOrder = () => {
                 <span className={styles}>Your cart items</span>
               </div>
               {cart.products.map((item) => (
-                <div className={styles.product_item}>
-                  <div className={styles.image_container} key={item.productId}>
+                <div className={styles.product_item} key={item.productId}>
+                  <div className={styles.image_container}>
                     <Image
                       className={styles.image}
                       src={item.productImage}
