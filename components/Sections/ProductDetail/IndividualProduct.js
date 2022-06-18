@@ -23,14 +23,13 @@ export default function IndividualProduct({ product }) {
   const products = useSelector((state) => state.cart.products);
 
   const cart = useSelector((state) => state.cart);
-  // console.log(product);
   const isInCart = (product) => {
     return !!products.find((item) => item.productId === product.productId);
   };
   useEffect(() => {
     setTest(products)
     console.log("HEllo product effecrt changed")
-  }, [cart])
+  }, [cart, products])
 
   const cartHandler = (product) => {
     dispatch(
@@ -41,21 +40,10 @@ export default function IndividualProduct({ product }) {
     console.log("prooo",addProduct);
     console.log("first", cart)
   };
-  // const cartDbHandler = async() => {
-  //   var formData = new FormData()
-  //   formData.append('products', JSON.stringify(test))
-  //   const response = await fetch(`${local_url}/cart/save-cart`, {
-  //     method: "POST",
-  //     mode: 'cors',
-  //     body: formData,
-  //   });
-  // }
-  // console.log("ihssi",cartDbHandler)
-  
+    
   return (
     <>
       <div className={styles.main_container}>
-        {}
         <div className={styles.wrapper_container}>
           <div className={styles.image_container}>
             <Image
@@ -94,7 +82,7 @@ export default function IndividualProduct({ product }) {
             </div> */}
             <div className={styles.button}>
               {isInCart(product) && (
-                <Link href="/user/cart">
+                <Link href="/user/cart" passHref>
                   <button className={styles.bag_button}>
                     GO TO BAG <AiOutlineArrowRight />
                   </button>

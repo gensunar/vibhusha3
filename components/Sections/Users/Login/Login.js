@@ -47,7 +47,7 @@ const Login = () => {
         return;
       }
     });
-  }, []);
+  }, [dispatch,router]);
 
   const EmailChangeHandler = (e) => {
     setEmail(e.target.value);
@@ -69,12 +69,6 @@ const Login = () => {
       setError("");
       setLoading(true);
       await signInWithEmailAndPassword(auth, email, password);
-      // dispatch(
-      //   login({
-      //     payload: user,
-      //   })
-      // );
-      // localStorage.setItem("user", JSON.stringify(user));
     } catch (error) {
       setError(error.message);
     }
@@ -124,7 +118,7 @@ const Login = () => {
         </div>
         <div className={styles.other_details}>
           <span className={styles.enquire}>New to Vibhusha?</span>
-          <Link href="/registration">
+          <Link href="/registration" passHref>
             <span className={styles.login}>Create an account</span>
           </Link>
         </div>

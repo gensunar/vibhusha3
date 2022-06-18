@@ -148,7 +148,7 @@ const Registration = () => {
         </div>
         <div className={styles.other_details}>
           <span className={styles.enquire}>Already Registered?</span>
-          <Link href="/login">
+          <Link href="/login" passHref>
             <span className={styles.login}>Login Here</span>
           </Link>
         </div>

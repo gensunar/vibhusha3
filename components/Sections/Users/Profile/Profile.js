@@ -27,16 +27,16 @@ const Profile = () => {
         <div className={styles.details_container}>
           <header className={styles.account}>My Account({isUser.displayName})</header>
           <ul className={styles.items}>
-            <Link href="/">
+            <Link href="/" passHref>
               <li><a>My Profile</a></li>
             </Link>
-            <Link href="/">
+            <Link href="/" passHref>
               <li><a>My Address Book</a></li>
             </Link>
-            <Link href="/">
+            <Link href="/" passHref>
               <li><a>My Orders</a></li>
             </Link>
-            <Link href="/">
+            <Link href="/" passHref>
               <li><a>Settings</a></li>
             </Link>
           </ul>

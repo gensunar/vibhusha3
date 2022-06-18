@@ -65,7 +65,7 @@ export default function Navbar(props) {
             <div className={styles.hamburger_line1}></div>
             <div className={styles.hamburger_line2}></div>
           </div>
-          <Link href="/">
+          <Link href="/" pasHref>
             <a>
               <div className={styles.image}></div>
               <div className={styles.brand}>VIBHUSHA</div>
@@ -76,22 +76,22 @@ export default function Navbar(props) {
         <div className={styles.menu}>
           <ul>
             <li>
-              <Link href="/">
+              <Link href="/" pasHref>
                 <a>Home</a>
               </Link>
             </li>
             <li>
-              <Link href="/about">
+              <Link href="/about" passHref>
                 <a>About</a>
               </Link>
             </li>
             <li>
-              <Link href="/products">
+              <Link href="/products" passHref>
                 <a>Product</a>
               </Link>
             </li>
             <li>
-              <Link href="#footer">
+              <Link href="#footer" passHref>
                 <a>Contact</a>
               </Link>
             </li>
@@ -100,7 +100,7 @@ export default function Navbar(props) {
         <div>
           {!isUser ? (
             <div className={styles.login}>
-              <Link href="/login">
+              <Link href="/login" passHref>
                 <button className={styles.login_button}>Login/Signup</button>
               </Link>
               <span className={styles.login_icon}>
@@ -110,7 +110,7 @@ export default function Navbar(props) {
           ) : (
             <div className={styles.user}>
               <div className={styles.cart}>
-                <Link href="/user/cart">
+                <Link href="/user/cart" passHref>
                   <a>
                     <span className={styles.cart_icon}>
                       <HiOutlineShoppingBag />
@@ -132,7 +132,7 @@ export default function Navbar(props) {
                 <div className={styles.dropdown_menu}>
                   <span className={styles.info}>Welcome!</span>
                   <span className={styles.user_name}>{isUser.displayName}</span>
-                  <Link href="/user/">
+                  <Link href="/user/" passHref>
                     <span className={styles.menu_item}>
                       <a>My Profile</a>
                     </span>

@@ -11,7 +11,7 @@ const AdminSideNav = () => {
           <div className={styles.quick_container}>
             <span className={styles.menu}><AiOutlineHome className={styles.icon}/>Home</span>
             <span className={styles.menu}><AiOutlineUser className={styles.icon} />Users</span>
-            <Link href='/admin/product'><span className={styles.menu}><AiOutlineShoppingCart className={styles.icon}/>Product</span></Link>
+            <Link href='/admin/product' passHref><span className={styles.menu}><AiOutlineShoppingCart className={styles.icon}/>Product</span></Link>
           </div>
         </div>
       </div>

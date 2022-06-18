@@ -36,6 +36,7 @@ const CartItem = ({ id, image, price, title, cQuantity, actualPrice, category })
             <Image
               className={styles.image}
               src={image}
+              alt={title}
               layout="fill"
               objectFit="cover"
             />

@@ -30,10 +30,11 @@ const ReviewOrder = () => {
               </div>
               {cart.products.map((item) => (
                 <div className={styles.product_item}>
-                  <div className={styles.image_container}>
+                  <div className={styles.image_container} key={item.productId}>
                     <Image
                       className={styles.image}
                       src={item.productImage}
+                      alt={item.productName}
                       layout="fill"
                       objectFit="cover"
                     />
