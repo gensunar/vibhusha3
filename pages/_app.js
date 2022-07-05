@@ -3,12 +3,14 @@ import Head from "next/head";
 import Router from "next/router";
 import store from "../Redux/store";
 import { Provider } from "react-redux";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import NProgress from "nprogress";
 NProgress.configure({ showSpinner: false });
 
 function MyApp({ Component, pageProps }) {
   const [isLoading, setIsLoading] = useState(true);
+  const [isUser, setIsUser] = useState("");
+
   Router.events.on("routeChangeStart", (url) => {
     NProgress.start();
     setIsLoading(true);

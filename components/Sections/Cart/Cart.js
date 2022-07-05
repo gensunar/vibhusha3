@@ -1,5 +1,6 @@
 import styles from "./Cart.module.css";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CartItem from "./CartItem/CartItem";
@@ -10,15 +11,15 @@ import { useRouter } from "next/router";
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
   const [cartState, setCartState] = useState({});
-  const dispatch = useDispatch()
-  const router = useRouter()
+  const dispatch = useDispatch();
+  const router = useRouter();
 
   const emptyCartHandler = () => {
-    dispatch(clearCart())  
-  }
+    dispatch(clearCart());
+  };
   const startHandler = () => {
-    router.push("/products")
-  }
+    router.push("/products");
+  };
 
   if (cart.products.length < 1) {
     return (
@@ -50,7 +51,6 @@ const Cart = () => {
               <button onClick={emptyCartHandler}>Empty Cart</button>
             </div>
           </header>
-          {/* <hr className={styles.hr_line} /> */}
           {cart.products.map((item) => (
             <CartItem
               key={item.productId}
@@ -63,14 +63,16 @@ const Cart = () => {
               category={item.category}
             />
           ))}
-          {/* <hr className={styles.hr_line} /> */}
         </div>
         <div className={styles.right_wrapper}>
           <RightWrapper />
+          <Link href="/user/cart/address" passHref>
+            <button className={styles.place_order}>PLACE ORDER</button>
+          </Link>
         </div>
       </section>
     </>
   );
 };
 
-export default Cart;
+export default dynamic(() => Promise.resolve(Cart), { ssr: false });

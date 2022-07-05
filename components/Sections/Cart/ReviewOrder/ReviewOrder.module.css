@@ -3,11 +3,12 @@
   min-height: 90vh;
   display: flex;
   width: 100%;
+  padding: 0 70px;
 }
 .data_container {
   color: #282c3f;
   padding: 20px 20px 40px 20px;
-  flex: 1.5;
+  flex: 1.7;
 }
 .review_header {
   font-size: 20px;
@@ -30,19 +31,21 @@
 }
 .deliver{
   font-size: 18px;
-  text-transform: uppercase;
+  text-transform: capitalize;
+  margin-bottom: 25px;
 }
 .title{
   font-size: 18px;
-  margin: 4px 0;
+  margin: 5px 0;
+  font-weight: 500;
 }
 .address{
   font-size: 14px;
-  margin-bottom: 1px;
+  margin-bottom: 2px;
 }
 .town{
   font-size: 14px;
-  margin-bottom: 1px;
+  margin-bottom: 2px;
 }
 .locality{
   font-size: 14px;
@@ -65,7 +68,8 @@
 .cart_items_header{
   margin-bottom: 10px;
   font-size: 18px;
-  text-transform: uppercase;
+  text-transform: capitalize;
+  margin-bottom: 25px;
 }
 .product_item{
   display: flex;
@@ -147,12 +151,69 @@
     font-weight: 600;
     color: #ff0e0e;
   }
-  .right_wrapper{
+  .right_wrapper {
     flex: 1;
-    padding: 0 40px 0 0; 
-    width: 100%;
-    margin-top: 15px;
+    letter-spacing: 1px;
+    padding: 50px 18px 20px 18px;
+    background: #fff;
   }
+  .right_text_container {
+      display: flex;
+      flex-direction: column;
+    }
+    .summary {
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 18px;
+    }
+    .summary_text {
+      color: #282c3f;
+      margin-bottom: 8px;
+      display: flex;
+      font-size: 14px;
+      justify-content: space-between;
+    }
+    .summary_text_data {
+      display: flex;
+    }
+    .discount_data{
+      color: #00f815;
+      font-weight: 600;
+    }
+    .free{
+      color: #ff0e0e;
+      font-weight: 600;
+    }
+    .sub_total {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+    }
+    .total_price {
+      color: #3e4152;
+      font-size: 16px;
+      font-weight: 600;
+    }
+    .place_order {
+      outline: none;
+      border: none;
+      padding: 16px 20px;
+      width: 100%;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      background: red;
+      color: #fff;
+      margin-top: 25px;
+    }
+    .place_order:hover {
+      outline: none;
+      cursor: pointer;
+      color: red;
+      background: transparent;
+      border: 1px solid red;
+    }
+  
   @media(max-width:425px){
    .review_order_container{
      flex-direction: column;
@@ -191,7 +252,7 @@
      justify-content: space-between;
      margin-bottom: 15px;
    }
-   .right_wrapper{
+   .right_wrapper_container{
      padding: 5px;
    }
   }

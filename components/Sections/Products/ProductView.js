@@ -19,8 +19,6 @@ export default function ProductView() {
     for (const productId in data) {
       const ProductData = data[productId];
       allProduct.push(ProductData);
-
-      // console.log(allProduct)
     }
     setProducts(allProduct);
     setIsLoading(false);

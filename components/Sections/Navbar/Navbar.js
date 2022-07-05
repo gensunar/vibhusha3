@@ -30,10 +30,6 @@ export default function Navbar(props) {
   const toogleSideNav = () => {
     setShowSideNav((prevState) => !prevState);
   };
-  // const currentUser = false;
-  // const RequireAuth = ({ children }) => {
-  //   return currentUser ? children : <router to="/login" />;
-  // };
 
   useEffect(() => {
     const userData = JSON.parse(localStorage.getItem("user"));
@@ -43,7 +39,6 @@ export default function Navbar(props) {
       setIsUser(null);
     }
   }, []);
-  // console.log("second", user.user.email);
   const handleLogout = () => {
     dispatch(logout());
     auth.signOut();
@@ -52,7 +47,6 @@ export default function Navbar(props) {
     router.replace("/");
   };
 
-  console.log(auth.currentUser)
   return (
     <>
       <Head>
@@ -69,7 +63,6 @@ export default function Navbar(props) {
             <a>
               <div className={styles.image}></div>
               <div className={styles.brand}>VIBHUSHA</div>
-              {/* <span>{user.user.email}</span> */}
             </a>
           </Link>
         </div>

@@ -26,6 +26,7 @@ export default function IndividualProduct({ product }) {
   const isInCart = (product) => {
     return !!products.find((item) => item.productId === product.productId);
   };
+  
   useEffect(() => {
     setTest(products)
     console.log("HEllo product effecrt changed")

@@ -1,0 +1,39 @@
+.container{
+    min-height: 90vh;
+    padding: 150px;
+}
+.success_data{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 1px;
+}
+.icon{
+    font-size: 5.5rem;
+    color: #0ebb33;
+}
+.order_text{
+    margin-bottom: 15px;
+    font-size: 26px;
+    color: #0cbd47;
+}
+.congrats{
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: rgb(0, 143, 55);
+}
+.order_page_link{
+    background: #f80e97;
+    color: #fff;
+    padding: 15px 35px;
+    font-size: 18px;
+    margin-top: 25px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+}
+.order_page_link:hover{
+    background: #d41484;
+}

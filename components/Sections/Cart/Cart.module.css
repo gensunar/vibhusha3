@@ -66,7 +66,7 @@
 }
 .right_wrapper{
   flex: 1;
-  padding: 0 20px 0 0;
+  padding: 50px 18px 20px 18px;
   margin-top: 15px;
 }
 .empty_cart_header{
@@ -93,6 +93,25 @@
   background: #dd004a;
   color: #fff;
   cursor: pointer;
+}
+.place_order {
+  outline: none;
+  border: none;
+  padding: 16px 20px;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  background: red;
+  color: #fff;
+  margin-top: 25px;
+}
+.place_order:hover {
+  outline: none;
+  cursor: pointer;
+  color: red;
+  background: transparent;
+  border: 1px solid red;
 }
 @media (max-width:768px){
   .cart_container{
