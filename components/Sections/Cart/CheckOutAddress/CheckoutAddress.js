@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import styles from "./CheckoutAddress.module.css";
 import { useRouter } from "next/router";
-import Link from "next/link";
+import Link from "next/link"; 
 import dynamic from "next/dynamic";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth, db } from "../../../../firebase";
@@ -23,15 +23,18 @@ const Checkout = () => {
   const [addressResponse, setAddressResponse] = useState([]);
 
   useEffect(() => {
-    onAuthStateChanged(auth, (currentUser) => {
-      if (currentUser) {
-        setIsUser(currentUser);
-        getAddressHandler();
-      } else {
-        setIsUser(null);
-      }
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setLoading(false)
+      setIsUser(currentUser)
     });
-  }, [isUser]);
+    return unsubscribe
+  }, []);
+
+  useEffect(() => {
+    if(isUser){
+      getAddressHandler()
+    }
+  }, [])
 
   const selectHandler = (addId) => {
     dispatch(
@@ -80,6 +83,7 @@ const Checkout = () => {
                     <span className={styles.add_header}>Add new address</span>
                   </button>
                 </div>
+                {addressResponse.length>1 && (<>
                 {addressResponse.map((item, index) => (
                   <div className={styles.address_data} key={index}>
                     <div className={styles.select_item}>
@@ -110,6 +114,8 @@ const Checkout = () => {
                     </span>
                   </div>
                 ))}
+                </>
+                )}
               </div>
             </div>
             <div className={styles.right_wrapper}>
