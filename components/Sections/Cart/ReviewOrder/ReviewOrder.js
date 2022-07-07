@@ -1,7 +1,6 @@
 import styles from "./ReviewOrder.module.css";
 import Image from "next/image";
 import dynamic from "next/dynamic";
-import axios from "axios";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
@@ -9,6 +8,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { local_url, base_url } from "../../../../constants/url";
 import Cart from "../Cart";
 import { totalPrice, totalMrp } from "../../../../Redux/Slices/cartSlice";
+import CheckoutAddress from "../CheckOutAddress/CheckoutAddress";
 import RightWrapper from "../Cart Right Wrapper/RightWrapper";
 
 const ReviewOrder = () => {
@@ -30,7 +30,9 @@ const ReviewOrder = () => {
   if (cart.products.length < 1) {
     return <Cart />;
   }
-
+  if(addState==null){
+    return <CheckoutAddress />
+  }
   const loadRazorpayHandler = async () => {
     const script = document.createElement("script");
     script.src = "https://checkout.razorpay.com/v1/checkout.js";
@@ -49,7 +51,6 @@ const ReviewOrder = () => {
           }
         );
         const data = await response.json();
-        // const { amount, id : order_id, currency } = data
         console.log(data);
         const keyData = await fetch(
           `${base_url}/order/get-razorpay-key`

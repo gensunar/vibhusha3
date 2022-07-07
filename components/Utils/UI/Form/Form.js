@@ -21,6 +21,7 @@ const Form = ({setShow}) => {
 
   const [loading, setLoading] = useState(true);
   const [isUser, setIsUser] = useState("");
+  const [success, setSuccess] = useState("")
 
   const [nameError, setNameError] = useState("");
   const [mobileError, setMobileError] = useState("");
@@ -29,6 +30,7 @@ const Form = ({setShow}) => {
   const [townError, setTownError] = useState("");
   const [stateError, setStateError] = useState("");
   const [districtError, setDistrictError] = useState("");
+  const [error, setError] = useState("")
 
   useEffect(() => {
     onAuthStateChanged(auth, (currentUser) => {
@@ -130,14 +132,12 @@ const Form = ({setShow}) => {
         method: "POST",
         body: formData,
       });
-      console.log(await response.json());
-      if (response) {
-        router.push("/user/cart/review-order");
+      if(response){
+        setSuccess("Added Successfully")
+        setLoading(false);
       }
-      setLoading(false);
-      setShow(true);
     } catch (err) {
-      console.log(err);
+        setError(err)
     }
   };
 
@@ -149,6 +149,7 @@ const Form = ({setShow}) => {
             <MdClear />
           </span>
           <form className={styles.data_container} onSubmit={handleAddress}>
+            {success && (<span className={styles.success_msg}>{success}</span>)}
             <div className={styles.contact_column}>
               <span className={styles.contact_header}>CONTACT DETAILS</span>
               <div className={styles.input}>
@@ -268,7 +269,7 @@ const Form = ({setShow}) => {
               </div>
             </div>
             <div className={styles.button}>
-              {loading ? (
+              {!loading ? (
                 <button type="submit" className={styles.continue_button}>
                   Add new address
                 </button>

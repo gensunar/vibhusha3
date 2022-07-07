@@ -4,7 +4,7 @@ import { addressState } from "../../components/Utils/User State/addressState"
 const addressInfo = addressState()
 
 const initialState = {
-    address : addressInfo || null
+    address : addressInfo || {}
 }
 
 export const addressSlice = createSlice({

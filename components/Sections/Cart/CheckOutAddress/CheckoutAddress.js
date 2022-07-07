@@ -7,20 +7,19 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth, db } from "../../../../firebase";
 import Form from "../../../Utils/UI/Form/Form";
 import Loading from "../../../../components/Utils/UI/Loading/Loading";
-import { add } from "../../../../Redux/Slices/addressSlice";
-import { useSelector, useDispatch } from "react-redux";
 import { MdAdd } from "react-icons/md";
 import RightWrapper from "../Cart Right Wrapper/RightWrapper";
+import { CheckoutAddressItem } from "./CheckoutAddressItem/CheckoutAddressItem";
 
 const Checkout = () => {
   const router = useRouter();
-  const dispatch = useDispatch();
-  const addState = useSelector((state) => state.address.address);
+  
 
   const [show, setShow] = useState(false);
   const [loading, setLoading] = useState(true);
   const [isUser, setIsUser] = useState("");
   const [addressResponse, setAddressResponse] = useState([]);
+  const [error, setError] = useState("")
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -34,32 +33,26 @@ const Checkout = () => {
     if(isUser){
       getAddressHandler()
     }
-  }, [])
-
-  const selectHandler = (addId) => {
-    dispatch(
-      add({
-        addId,
-      })
-    );
-    localStorage.setItem("address", JSON.stringify(addId));
-  };
+  }, [isUser, addressResponse])
 
   const getAddressHandler = async () => {
-    const res = await fetch(
-      `https://vibhashu-c0ea3-default-rtdb.firebaseio.com/Address/address${isUser.uid}.json`
-    );
-    const data = await res.json();
-
-    let address = [];
-    for (const i in data) {
-      const addressdata = data[i];
-      address.push(addressdata);
-    }
-    setAddressResponse(address);
-    setLoading(false);
+    try{
+      const res = await fetch(
+        `https://vibhashu-c0ea3-default-rtdb.firebaseio.com/Address/address${isUser.uid}.json`
+        );
+        const data = await res.json();
+        
+        let address = [];
+        for (const i in data) {
+          const addressdata = data[i];
+          address.push(addressdata);
+        }
+        setAddressResponse(address);
+        setLoading(false);
+      }catch(err){
+        setError(err)
+      }
   };
-
   return (
     <>
       <div className={styles.checkout_container}>
@@ -83,39 +76,20 @@ const Checkout = () => {
                     <span className={styles.add_header}>Add new address</span>
                   </button>
                 </div>
-                {addressResponse.length>1 && (<>
                 {addressResponse.map((item, index) => (
-                  <div className={styles.address_data} key={index}>
-                    <div className={styles.select_item}>
-                      {addState.addId === item.addId ? (
-                        <span
-                          className={styles.selected}
-                          onClick={() => selectHandler(item)}
-                        >
-                          Selected
-                        </span>
-                      ) : (
-                        <span
-                          className={styles.select}
-                          onClick={() => selectHandler(item)}
-                        >
-                          Select
-                        </span>
-                      )}
-                    </div>
-                    <span className={styles.cust_name}>{item.custname}</span>
-                    <span className={styles.address_text}>{item.address}</span>
-                    <span className={styles.address_text}>{item.town}</span>
-                    <span className={styles.district}>
-                      {item.district}, {item.state} - {item.pincode}
-                    </span>
-                    <span className={styles.cust_mobile}>
-                      Phone: {item.custMobile}
-                    </span>
-                  </div>
+                  <CheckoutAddressItem 
+                    key= {index}
+                    name= {item.custname}
+                    address= {item.address}
+                    district= {item.district}
+                    state= {item.state}
+                    pincode= {item.pincode}
+                    town={item.town}
+                    phone= {item.custMobile}
+                    id= {item.addId}
+                    // {...item}
+                  />
                 ))}
-                </>
-                )}
               </div>
             </div>
             <div className={styles.right_wrapper}>
