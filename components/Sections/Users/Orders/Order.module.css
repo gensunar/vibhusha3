@@ -1,0 +1,38 @@
+.order_container{
+    margin-top: 75px;
+    min-height: 100vh;
+    padding: 30px 70px;
+}
+.header{
+    font-size: 18px;
+    font-weight: 600;
+    color: red;
+    margin: 0;
+    letter-spacing: 1px;
+}
+.order_data{
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
+    rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+}
+.data{
+
+}
+.image_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    position: relative;
+  }
+  .image {
+    width: 100%;
+    height: 100%;
+  }
+  .quantity{
+    font-weight: 600;
+    
+  }

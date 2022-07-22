@@ -1,0 +1,153 @@
+.container {
+  margin-top: 75px;
+  min-height: 100vh;
+  display: flex;
+  width: 100%;
+}
+
+.order_detail {
+  flex: 3;
+  margin: 5% 0% 0 10%;
+}
+.account {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.order_id {
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #2c2c2c;
+  display: flex;
+  align-items: center;
+}
+.order_data {
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
+    rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  justify-content: space-between;
+  align-items: center;
+}
+.text {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 30px;
+  letter-spacing: 1px;
+  margin-top: 15px;
+}
+.product_name {
+  margin-top: 5px;
+  font-weight: 600;
+  font-size: 18px;
+  white-space: nowrap;
+}
+.usage {
+  margin-top: 8px;
+}
+.usage_header {
+  color: #3d3d3d;
+}
+.usage_data {
+  color: #3d3d3d;
+}
+.quantity_header {
+  color: #111111;
+  font-weight: 600;
+}
+.quantity {
+  margin-top: 8px;
+  color: #3d3d3d;
+}
+.image_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  height: 280px;
+  position: relative;
+}
+.image {
+  width: 100%;
+  height: 100%;
+}
+.right_section {
+  flex: 2;
+  margin: 9% 5% 0% 5%;
+}
+.right_data {
+  margin-top: 30px;
+}
+.shipping_data {
+  display: flex;
+  flex-direction: column;
+  letter-spacing: 1px;
+  padding: 35px 35px;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
+    rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+  margin-bottom: 30px;
+}
+.shipping_header {
+  letter-spacing: 1px;
+  color: #111111;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.name {
+  margin-bottom: 5px;
+  color: #111111;
+  font-size: 16px;
+  font-weight: 600;
+}
+.phone {
+  margin-bottom: 5px;
+}
+.address {
+  margin-top: 8px;
+  color: #4e4e4e;
+}
+.payment_header{
+  display: flex;
+  font-size: 15px;
+  justify-content: space-between;
+}
+.payment{
+  font-weight: 600;
+  font-size: 15px;
+}
+.save_header{
+  margin-top: 7px;
+  font-size: 14px;
+  color: #696E79;
+}
+.save_amount{
+  color: #03a685;
+  font-weight: 600;
+}
+.pay_status{
+  margin-top: 12px;
+  font-size: 14px;
+  color: #696E79;
+  letter-spacing: 1px;
+}
+.success_msg{
+  color: #03a685;
+  font-weight: 600;
+}
+.order_status{
+  letter-spacing: 1px;
+  font-size: 14px;
+  border-radius: 6px;
+  padding: 6px 8px;
+  background: #ececec;
+  color: #e60a91;
+  margin-left: 30px;
+}

@@ -53,6 +53,7 @@ const Checkout = () => {
         setError(err)
       }
   };
+ 
   return (
     <>
       <div className={styles.checkout_container}>

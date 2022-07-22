@@ -14,8 +14,9 @@ import RightWrapper from "../Cart Right Wrapper/RightWrapper";
 const ReviewOrder = () => {
   const router = useRouter();
   const cart = useSelector((state) => state.cart);
+  const user = useSelector((state) => state.user.user)
   const dispatch = useDispatch();
-  const shipping = cart.total < 20000 ? 99 : 0;
+  const shipping = cart.total < 10000 ? 99 : 0;
 
   const addState = useSelector((state) => state.address.address);
 
@@ -33,6 +34,7 @@ const ReviewOrder = () => {
   if(addState==null){
     return <CheckoutAddress />
   }
+
   const loadRazorpayHandler = async () => {
     const script = document.createElement("script");
     script.src = "https://checkout.razorpay.com/v1/checkout.js";
@@ -63,23 +65,30 @@ const ReviewOrder = () => {
           name: "VIBHUSHA",
           description: "Transaction",
           order_id: data.id,
-
+          
           handler: async function (response) {
             const formData = new FormData();
+            formData.append("id", user.uid)
+            formData.append("user", user.displayName)
+            formData.append("userEmail", user.email)
+            formData.append("cart", JSON.stringify(cart.products))
             formData.append("amount", amount);
+            formData.append("shippingAddress", JSON.stringify(addState))
+            formData.append("shipping", shipping)
+            formData.append("cartTotal", cart.total)
             formData.append("razorpayPaymentId", response.razorpay_payment_id);
             formData.append("razorpayOrderId", response.razorpay_order_id);
             formData.append("razorpaySignature", response.razorpay_signature);
-            const result = await fetch(`${base_url}/order/pay-order`, {
+            const verifyResult = await fetch(`${local_url}/order/verification`, {
               method: "POST",
               body: formData,
-            });
-            const paymentData = await result.json();
-            console.log(paymentData);
-            // alert(response.razorpay_payment_id);
-            // alert(response.razorpay_order_id);
-            // alert(response.razorpay_signature);
-            router.push("/user/cart/success")
+            })
+            const resultData = await verifyResult.json()
+            const redirectLink = resultData.redirect
+            console.log(resultData, redirectLink)
+            if(resultData.success){
+              return router.push(redirectLink)
+            }
           },
           prefill: {
             name: "Rahul Sunar",
@@ -113,7 +122,7 @@ const ReviewOrder = () => {
           <div className={styles.info_container}>
             <div className={styles.address_container}>
               <span className={styles.deliver}>Shipping Address:</span>
-              <span className={styles.title}>{addState.custname}</span>
+              <span className={styles.title}>{addState.name}</span>
               <span className={styles.address}>
                 {addState.address}
               </span>

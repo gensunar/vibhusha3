@@ -31,7 +31,6 @@ const cartSlice = createSlice({
       } else {
         const newProduct = { ...action.payload, cartQuantity: 1 };
         state.products.push(newProduct);
-        state.quantity += 1;
       }
       localStorage.setItem("cart", JSON.stringify(state.products));
     },

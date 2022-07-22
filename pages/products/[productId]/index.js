@@ -10,7 +10,6 @@ export async function getStaticPaths() {
     `https://vibhashu-c0ea3-default-rtdb.firebaseio.com/Products.json`
   );
   const data = await res.json();
-  console.log(data);
 
   let ProductId = [];
   for (const key in data) {

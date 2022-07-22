@@ -8,7 +8,7 @@ const RightWrapper = () => {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
 
-  const shipping = cart.total < 20000 ? 99 : 0;
+  const shipping = cart.total < 10000 ? 99 : 0;
 
   useEffect(() => {
     dispatch(totalPrice());
